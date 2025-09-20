@@ -1,0 +1,21 @@
+# Cloudflare Pages 多语言重定向规则
+# 主域名重定向到英文版
+stealbrainrot.co/* /:splat 200
+
+# 子域名重定向到对应语言文件夹
+zh-cn.stealbrainrot.co/* /zh-cn/:splat 200
+es.stealbrainrot.co/* /es/:splat 200
+ar.stealbrainrot.co/* /ar/:splat 200
+ko.stealbrainrot.co/* /ko/:splat 200
+ja.stealbrainrot.co/* /ja/:splat 200
+de.stealbrainrot.co/* /de/:splat 200
+fr.stealbrainrot.co/* /fr/:splat 200
+
+# 处理根路径访问
+zh-cn.stealbrainrot.co/ /zh-cn/ 200
+es.stealbrainrot.co/ /es/ 200
+ar.stealbrainrot.co/ /ar/ 200
+ko.stealbrainrot.co/ /ko/ 200
+ja.stealbrainrot.co/ /ja/ 200
+de.stealbrainrot.co/ /de/ 200
+fr.stealbrainrot.co/ /fr/ 200

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网站调试工具 - Steal Brainrot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #1a1a2e;
+            color: white;
+        }
+        .debug-section {
+            background: #2a2a3e;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            border: 1px solid #444;
+        }
+        .test-button {
+            background: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .test-button:hover {
+            background: #45a049;
+        }
+        .error-button {
+            background: #f44336;
+        }
+        .error-button:hover {
+            background: #da190b;
+        }
+        .log {
+            background: #000;
+            color: #0f0;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: monospace;
+            max-height: 300px;
+            overflow-y: auto;
+            margin: 10px 0;
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .success { background: #4CAF50; }
+        .error { background: #f44336; }
+        .warning { background: #ff9800; }
+        .info { background: #2196F3; }
+    </style>
+</head>
+<body>
+    <h1>🔧 Steal Brainrot 网站调试工具</h1>
+    
+    <div class="debug-section">
+        <h2>🌐 服务器状态</h2>
+        <div id="serverStatus" class="status info">检查中...</div>
+        <button class="test-button" onclick="checkServerStatus()">检查服务器状态</button>
+    </div>
+    
+    <div class="debug-section">
+        <h2>🎨 配色方案测试</h2>
+        <div id="colorSchemeStatus" class="status info">准备测试...</div>
+        <button class="test-button" onclick="testColorSchemes()">测试配色方案切换</button>
+        <button class="test-button" onclick="testColorSchemeStorage()">测试配色方案存储</button>
+    </div>
+    
+    <div class="debug-section">
+        <h2>🌍 语言切换测试</h2>
+        <div id="languageStatus" class="status info">准备测试...</div>
+        <button class="test-button" onclick="testLanguageManager()">测试语言管理器</button>
+        <button class="test-button" onclick="testLanguageSwitching()">测试语言切换</button>
+    </div>
+    
+    <div class="debug-section">
+        <h2>🎮 游戏功能测试</h2>
+        <div id="gameStatus" class="status info">准备测试...</div>
+        <button class="test-button" onclick="testGameLoading()">测试游戏加载</button>
+        <button class="test-button" onclick="testGameFrame()">测试游戏框架</button>
+    </div>
+    
+    <div class="debug-section">
+        <h2>📱 响应式设计测试</h2>
+        <div id="responsiveStatus" class="status info">准备测试...</div>
+        <button class="test-button" onclick="testResponsiveDesign()">测试响应式设计</button>
+        <button class="test-button" onclick="testMobileFeatures()">测试移动端功能</button>
+    </div>
+    
+    <div class="debug-section">
+        <h2>📊 调试日志</h2>
+        <div id="debugLog" class="log">调试日志将显示在这里...\n</div>
+        <button class="test-button" onclick="clearLog()">清空日志</button>
+        <button class="test-button error-button" onclick="runAllTests()">运行所有测试</button>
+    </div>
+
+    <script>
+        let logElement = document.getElementById('debugLog');
+        
+        function log(message, type = 'info') {
+            const timestamp = new Date().toLocaleTimeString();
+            const logMessage = `[${timestamp}] ${message}\n`;
+            logElement.textContent += logMessage;
+            logElement.scrollTop = logElement.scrollHeight;
+            console.log(message);
+        }
+        
+        function clearLog() {
+            logElement.textContent = '调试日志已清空...\n';
+        }
+        
+        function updateStatus(elementId, message, type) {
+            const element = document.getElementById(elementId);
+            element.textContent = message;
+            element.className = `status ${type}`;
+        }
+        
+        // 检查服务器状态
+        async function checkServerStatus() {
+            log('🔍 检查服务器状态...');
+            try {
+                const response = await fetch('/');
+                if (response.ok) {
+                    updateStatus('serverStatus', '✅ 服务器运行正常', 'success');
+                    log('✅ 服务器响应正常，状态码: ' + response.status);
+                } else {
+                    updateStatus('serverStatus', '⚠️ 服务器响应异常', 'warning');
+                    log('⚠️ 服务器响应异常，状态码: ' + response.status);
+                }
+            } catch (error) {
+                updateStatus('serverStatus', '❌ 服务器连接失败', 'error');
+                log('❌ 服务器连接失败: ' + error.message);
+            }
+        }
+        
+        // 测试配色方案
+        function testColorSchemes() {
+            log('🎨 测试配色方案切换...');
+            const schemes = ['dark', 'neon', 'warm', 'mysterious', 'orange-red', 'mint'];
+            let currentIndex = 0;
+            
+            const testInterval = setInterval(() => {
+                if (currentIndex < schemes.length) {
+                    const scheme = schemes[currentIndex];
+                    log(`切换到配色方案: ${scheme}`);
+                    
+                    // 模拟配色方案切换
+                    document.body.style.background = getSchemeBackground(scheme);
+                    currentIndex++;
+                } else {
+                    clearInterval(testInterval);
+                    updateStatus('colorSchemeStatus', '✅ 配色方案测试完成', 'success');
+                    log('✅ 所有配色方案测试完成');
+                }
+            }, 1000);
+        }
+        
+        function getSchemeBackground(scheme) {
+            const backgrounds = {
+                'dark': 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)',
+                'neon': 'linear-gradient(135deg, #0a0a0a 0%, #1a0033 50%, #330066 100%)',
+                'warm': 'linear-gradient(135deg, #2c1810 0%, #8b4513 50%, #cd853f 100%)',
+                'mysterious': 'linear-gradient(135deg, #0d1117 0%, #161b22 50%, #21262d 100%)',
+                'orange-red': 'linear-gradient(135deg, #2d1b1b 0%, #8b0000 50%, #ff4500 100%)',
+                'mint': 'linear-gradient(135deg, #0d2d1a 0%, #2d5a3d 50%, #4a7c59 100%)'
+            };
+            return backgrounds[scheme] || backgrounds['dark'];
+        }
+        
+        // 测试配色方案存储
+        function testColorSchemeStorage() {
+            log('💾 测试配色方案存储...');
+            try {
+                localStorage.setItem('colorScheme', 'test-scheme');
+                const stored = localStorage.getItem('colorScheme');
+                if (stored === 'test-scheme') {
+                    localStorage.removeItem('colorScheme');
+                    updateStatus('colorSchemeStatus', '✅ 本地存储正常', 'success');
+                    log('✅ 本地存储功能正常');
+                } else {
+                    updateStatus('colorSchemeStatus', '❌ 本地存储异常', 'error');
+                    log('❌ 本地存储功能异常');
+                }
+            } catch (error) {
+                updateStatus('colorSchemeStatus', '❌ 本地存储失败', 'error');
+                log('❌ 本地存储失败: ' + error.message);
+            }
+        }
+        
+        // 测试语言管理器
+        function testLanguageManager() {
+            log('🌍 测试语言管理器...');
+            try {
+                // 检查languages.js是否加载
+                if (typeof languageManager !== 'undefined') {
+                    updateStatus('languageStatus', '✅ 语言管理器已加载', 'success');
+                    log('✅ 语言管理器对象存在');
+                } else {
+                    updateStatus('languageStatus', '⚠️ 语言管理器未加载', 'warning');
+                    log('⚠️ 语言管理器对象不存在');
+                }
+            } catch (error) {
+                updateStatus('languageStatus', '❌ 语言管理器测试失败', 'error');
+                log('❌ 语言管理器测试失败: ' + error.message);
+            }
+        }
+        
+        // 测试语言切换
+        function testLanguageSwitching() {
+            log('🔄 测试语言切换...');
+            const languages = ['en', 'zh-cn', 'es', 'fr', 'de', 'ja', 'ko', 'ar'];
+            log(`支持的语言: ${languages.join(', ')}`);
+            
+            // 测试URL构建
+            languages.forEach(lang => {
+                const url = lang === 'en' 
+                    ? 'https://stealbrainrot.co/' 
+                    : `https://${lang}.stealbrainrot.co/`;
+                log(`语言 ${lang} 对应URL: ${url}`);
+            });
+            
+            updateStatus('languageStatus', '✅ 语言切换测试完成', 'success');
+        }
+        
+        // 测试游戏加载
+        function testGameLoading() {
+            log('🎮 测试游戏加载...');
+            try {
+                // 检查游戏相关函数是否存在
+                if (typeof loadGameInFrame === 'function') {
+                    log('✅ loadGameInFrame 函数存在');
+                } else {
+                    log('⚠️ loadGameInFrame 函数不存在');
+                }
+                
+                if (typeof loadGameInNewTab === 'function') {
+                    log('✅ loadGameInNewTab 函数存在');
+                } else {
+                    log('⚠️ loadGameInNewTab 函数不存在');
+                }
+                
+                updateStatus('gameStatus', '✅ 游戏功能测试完成', 'success');
+            } catch (error) {
+                updateStatus('gameStatus', '❌ 游戏功能测试失败', 'error');
+                log('❌ 游戏功能测试失败: ' + error.message);
+            }
+        }
+        
+        // 测试游戏框架
+        function testGameFrame() {
+            log('🖼️ 测试游戏框架...');
+            try {
+                const gameFrame = document.getElementById('gameFrame');
+                if (gameFrame) {
+                    log('✅ 游戏框架元素存在');
+                } else {
+                    log('⚠️ 游戏框架元素不存在');
+                }
+                
+                updateStatus('gameStatus', '✅ 游戏框架测试完成', 'success');
+            } catch (error) {
+                updateStatus('gameStatus', '❌ 游戏框架测试失败', 'error');
+                log('❌ 游戏框架测试失败: ' + error.message);
+            }
+        }
+        
+        // 测试响应式设计
+        function testResponsiveDesign() {
+            log('📱 测试响应式设计...');
+            const breakpoints = [
+                { name: 'Mobile', width: 375 },
+                { name: 'Tablet', width: 768 },
+                { name: 'Desktop', width: 1024 },
+                { name: 'Large Desktop', width: 1440 }
+            ];
+            
+            breakpoints.forEach(bp => {
+                log(`测试断点: ${bp.name} (${bp.width}px)`);
+            });
+            
+            updateStatus('responsiveStatus', '✅ 响应式设计测试完成', 'success');
+        }
+        
+        // 测试移动端功能
+        function testMobileFeatures() {
+            log('📱 测试移动端功能...');
+            const isMobile = window.innerWidth <= 768;
+            log(`当前设备类型: ${isMobile ? '移动端' : '桌面端'}`);
+            log(`屏幕宽度: ${window.innerWidth}px`);
+            log(`屏幕高度: ${window.innerHeight}px`);
+            
+            // 检查移动端特定元素
+            const mobileElements = [
+                'mobileColorSchemeSelector',
+                'mobileColorSchemeButton',
+                'mobileColorSchemeDropdown',
+                'mobileLanguageDropdown'
+            ];
+            
+            mobileElements.forEach(elementId => {
+                const element = document.getElementById(elementId);
+                if (element) {
+                    log(`✅ 移动端元素存在: ${elementId}`);
+                } else {
+                    log(`⚠️ 移动端元素不存在: ${elementId}`);
+                }
+            });
+            
+            updateStatus('responsiveStatus', '✅ 移动端功能测试完成', 'success');
+        }
+        
+        // 运行所有测试
+        async function runAllTests() {
+            log('🚀 开始运行所有测试...');
+            clearLog();
+            
+            await checkServerStatus();
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            
+            testColorSchemes();
+            await new Promise(resolve => setTimeout(resolve, 2000));
+            
+            testColorSchemeStorage();
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            
+            testLanguageManager();
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            
+            testLanguageSwitching();
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            
+            testGameLoading();
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            
+            testGameFrame();
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            
+            testResponsiveDesign();
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            
+            testMobileFeatures();
+            
+            log('🎉 所有测试完成！');
+        }
+        
+        // 页面加载完成后自动检查服务器状态
+        window.addEventListener('load', () => {
+            log('🔧 调试工具已加载');
+            checkServerStatus();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Steal Brainrot - 配色方案展示</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* 方案一：霓虹赛博朋克风格 */
+        .scheme-1 .gradient-bg {
+            background: linear-gradient(135deg, #ff0080 0%, #00ffff 50%, #8000ff 100%);
+            box-shadow: 0 0 30px rgba(255, 0, 128, 0.3), 0 0 60px rgba(0, 255, 255, 0.2);
+        }
+        .scheme-1 .neon-button {
+            background: linear-gradient(45deg, #ff0080, #00ffff);
+            border: 2px solid #00ffff;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+            animation: neon-pulse 2s ease-in-out infinite alternate;
+        }
+        .scheme-1 .neon-text {
+            text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+        }
+        .scheme-1 .game-container {
+            border: 3px solid #00ffff;
+            box-shadow: 0 0 25px rgba(0, 255, 255, 0.4);
+        }
+
+        /* 方案二：温暖游戏风格 */
+        .scheme-2 .gradient-bg {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ffd23f 100%);
+            box-shadow: 0 0 30px rgba(255, 107, 53, 0.4), 0 0 60px rgba(255, 210, 63, 0.3);
+        }
+        .scheme-2 .warm-button {
+            background: linear-gradient(45deg, #ff6b35, #ffd23f);
+            border: 2px solid #ffd23f;
+            box-shadow: 0 0 20px rgba(255, 210, 63, 0.6);
+            animation: warm-glow 2s ease-in-out infinite alternate;
+        }
+        .scheme-2 .warm-text {
+            text-shadow: 0 0 10px #ffd23f, 0 0 20px #ff6b35, 0 0 30px #ff6b35;
+        }
+        .scheme-2 .game-container {
+            border: 3px solid #ffd23f;
+            box-shadow: 0 0 25px rgba(255, 210, 63, 0.5);
+        }
+
+        /* 方案三：暗黑神秘风格 */
+        .scheme-3 .gradient-bg {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            box-shadow: 0 0 30px rgba(26, 26, 46, 0.8), 0 0 60px rgba(15, 52, 96, 0.4);
+        }
+        .scheme-3 .dark-button {
+            background: linear-gradient(45deg, #1a1a2e, #0f3460);
+            border: 2px solid #e94560;
+            box-shadow: 0 0 20px rgba(233, 69, 96, 0.6);
+            animation: dark-pulse 2s ease-in-out infinite alternate;
+        }
+        .scheme-3 .dark-text {
+            text-shadow: 0 0 10px #e94560, 0 0 20px #e94560, 0 0 30px #e94560;
+        }
+        .scheme-3 .game-container {
+            border: 3px solid #e94560;
+            box-shadow: 0 0 25px rgba(233, 69, 96, 0.5);
+        }
+
+        /* 方案四：活力橙红风格 */
+        .scheme-4 .gradient-bg {
+            background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 50%, #ff6b6b 100%);
+            box-shadow: 0 0 30px rgba(255, 65, 108, 0.4), 0 0 60px rgba(255, 75, 43, 0.3);
+        }
+        .scheme-4 .fire-button {
+            background: linear-gradient(45deg, #ff416c, #ff4b2b);
+            border: 2px solid #ff6b6b;
+            box-shadow: 0 0 20px rgba(255, 107, 107, 0.6);
+            animation: fire-glow 2s ease-in-out infinite alternate;
+        }
+        .scheme-4 .fire-text {
+            text-shadow: 0 0 10px #ff6b6b, 0 0 20px #ff416c, 0 0 30px #ff4b2b;
+        }
+        .scheme-4 .game-container {
+            border: 3px solid #ff6b6b;
+            box-shadow: 0 0 25px rgba(255, 107, 107, 0.5);
+        }
+
+        /* 方案五：清新薄荷风格 */
+        .scheme-5 .gradient-bg {
+            background: linear-gradient(135deg, #00d4aa 0%, #00b4db 50%, #00a8cc 100%);
+            box-shadow: 0 0 30px rgba(0, 212, 170, 0.4), 0 0 60px rgba(0, 180, 219, 0.3);
+        }
+        .scheme-5 .mint-button {
+            background: linear-gradient(45deg, #00d4aa, #00b4db);
+            border: 2px solid #00d4aa;
+            box-shadow: 0 0 20px rgba(0, 212, 170, 0.6);
+            animation: mint-glow 2s ease-in-out infinite alternate;
+        }
+        .scheme-5 .mint-text {
+            text-shadow: 0 0 10px #00d4aa, 0 0 20px #00b4db, 0 0 30px #00a8cc;
+        }
+        .scheme-5 .game-container {
+            border: 3px solid #00d4aa;
+            box-shadow: 0 0 25px rgba(0, 212, 170, 0.5);
+        }
+
+        /* 动画效果 */
+        @keyframes neon-pulse {
+            from { box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 30px rgba(255, 0, 128, 0.3); }
+            to { box-shadow: 0 0 30px rgba(0, 255, 255, 0.8), 0 0 40px rgba(255, 0, 128, 0.5); }
+        }
+
+        @keyframes warm-glow {
+            from { box-shadow: 0 0 20px rgba(255, 210, 63, 0.6), 0 0 30px rgba(255, 107, 53, 0.4); }
+            to { box-shadow: 0 0 30px rgba(255, 210, 63, 0.8), 0 0 40px rgba(255, 107, 53, 0.6); }
+        }
+
+        @keyframes dark-pulse {
+            from { box-shadow: 0 0 20px rgba(233, 69, 96, 0.6), 0 0 30px rgba(15, 52, 96, 0.4); }
+            to { box-shadow: 0 0 30px rgba(233, 69, 96, 0.8), 0 0 40px rgba(15, 52, 96, 0.6); }
+        }
+
+        @keyframes fire-glow {
+            from { box-shadow: 0 0 20px rgba(255, 107, 107, 0.6), 0 0 30px rgba(255, 65, 108, 0.4); }
+            to { box-shadow: 0 0 30px rgba(255, 107, 107, 0.8), 0 0 40px rgba(255, 65, 108, 0.6); }
+        }
+
+        @keyframes mint-glow {
+            from { box-shadow: 0 0 20px rgba(0, 212, 170, 0.6), 0 0 30px rgba(0, 180, 219, 0.4); }
+            to { box-shadow: 0 0 30px rgba(0, 212, 170, 0.8), 0 0 40px rgba(0, 180, 219, 0.6); }
+        }
+
+        .scheme-demo {
+            min-height: 400px;
+            border-radius: 20px;
+            margin: 20px 0;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .scheme-demo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: inherit;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .scheme-demo > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .game-demo {
+            width: 100%;
+            height: 200px;
+            background: #000;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            margin: 20px 0;
+        }
+    </style>
+    
+    
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.svg">
+    <link rel="icon" type="image/svg+xml" sizes="192x192" href="/android-chrome-192x192.svg">
+    <link rel="icon" type="image/svg+xml" sizes="512x512" href="/android-chrome-512x512.svg">
+    <!-- 现代简约风格图标 - 强制更新 -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=1758384699969">
+    <link rel="icon" type="image/svg+xml" sizes="16x16" href="/favicon-16x16.svg?v=1758384699969">
+    <link rel="icon" type="image/svg+xml" sizes="32x32" href="/favicon-32x32.svg?v=1758384699969">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.svg?v=1758384699969">
+    <link rel="icon" type="image/svg+xml" sizes="192x192" href="/android-chrome-192x192.svg?v=1758384699969">
+    <link rel="icon" type="image/svg+xml" sizes="512x512" href="/android-chrome-512x512.svg?v=1758384699969">
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-4xl font-bold text-center mb-8 text-gray-800">Steal Brainrot - 配色方案展示</h1>
+        
+        <!-- 方案一：霓虹赛博朋克风格 -->
+        <div class="scheme-1 scheme-demo gradient-bg text-white">
+            <h2 class="text-3xl font-bold mb-4 neon-text">方案一：霓虹赛博朋克风格</h2>
+            <p class="text-lg mb-6">充满未来感的霓虹色彩，适合喜欢科技感和炫酷效果的玩家</p>
+            <button class="neon-button text-white font-bold py-3 px-6 rounded-full text-lg transition-all duration-300 hover:scale-105">
+                🎮 立即游戏
+            </button>
+            <div class="game-demo game-container">
+                🎮 游戏演示区域
+            </div>
+            <div class="text-sm opacity-80">
+                <strong>配色特点：</strong> 霓虹粉、青色、紫色渐变，强烈的视觉冲击力
+            </div>
+        </div>
+
+        <!-- 方案二：温暖游戏风格 -->
+        <div class="scheme-2 scheme-demo gradient-bg text-white">
+            <h2 class="text-3xl font-bold mb-4 warm-text">方案二：温暖游戏风格</h2>
+            <p class="text-lg mb-6">温暖的橙黄色调，营造友好和充满活力的游戏氛围</p>
+            <button class="warm-button text-white font-bold py-3 px-6 rounded-full text-lg transition-all duration-300 hover:scale-105">
+                🎮 立即游戏
+            </button>
+            <div class="game-demo game-container">
+                🎮 游戏演示区域
+            </div>
+            <div class="text-sm opacity-80">
+                <strong>配色特点：</strong> 橙色、黄色渐变，温暖友好，适合休闲玩家
+            </div>
+        </div>
+
+        <!-- 方案三：暗黑神秘风格 -->
+        <div class="scheme-3 scheme-demo gradient-bg text-white">
+            <h2 class="text-3xl font-bold mb-4 dark-text">方案三：暗黑神秘风格</h2>
+            <p class="text-lg mb-6">深色背景配红色点缀，营造神秘和刺激的游戏体验</p>
+            <button class="dark-button text-white font-bold py-3 px-6 rounded-full text-lg transition-all duration-300 hover:scale-105">
+                🎮 立即游戏
+            </button>
+            <div class="game-demo game-container">
+                🎮 游戏演示区域
+            </div>
+            <div class="text-sm opacity-80">
+                <strong>配色特点：</strong> 深蓝、深紫、红色，神秘刺激，适合硬核玩家
+            </div>
+        </div>
+
+        <!-- 方案四：活力橙红风格 -->
+        <div class="scheme-4 scheme-demo gradient-bg text-white">
+            <h2 class="text-3xl font-bold mb-4 fire-text">方案四：活力橙红风格</h2>
+            <p class="text-lg mb-6">充满活力的红橙色系，激发玩家的游戏热情和竞争欲望</p>
+            <button class="fire-button text-white font-bold py-3 px-6 rounded-full text-lg transition-all duration-300 hover:scale-105">
+                🎮 立即游戏
+            </button>
+            <div class="game-demo game-container">
+                🎮 游戏演示区域
+            </div>
+            <div class="text-sm opacity-80">
+                <strong>配色特点：</strong> 红色、橙色渐变，充满活力，适合竞技玩家
+            </div>
+        </div>
+
+        <!-- 方案五：清新薄荷风格 -->
+        <div class="scheme-5 scheme-demo gradient-bg text-white">
+            <h2 class="text-3xl font-bold mb-4 mint-text">方案五：清新薄荷风格</h2>
+            <p class="text-lg mb-6">清新的青绿色调，提供舒适愉悦的游戏体验</p>
+            <button class="mint-button text-white font-bold py-3 px-6 rounded-full text-lg transition-all duration-300 hover:scale-105">
+                🎮 立即游戏
+            </button>
+            <div class="game-demo game-container">
+                🎮 游戏演示区域
+            </div>
+            <div class="text-sm opacity-80">
+                <strong>配色特点：</strong> 薄荷绿、青色渐变，清新舒适，适合所有年龄段
+            </div>
+        </div>
+
+        <div class="mt-12 p-6 bg-white rounded-lg shadow-lg">
+            <h3 class="text-2xl font-bold mb-4 text-gray-800">配色方案说明</h3>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                    <h4 class="font-bold text-lg mb-2">推荐使用场景：</h4>
+                    <ul class="space-y-2 text-gray-700">
+                        <li><strong>霓虹赛博朋克：</strong> 科技游戏、未来主题、年轻用户群体</li>
+                        <li><strong>温暖游戏风格：</strong> 休闲游戏、家庭友好、温馨氛围</li>
+                        <li><strong>暗黑神秘风格：</strong> 硬核游戏、竞技对战、成人玩家</li>
+                        <li><strong>活力橙红风格：</strong> 竞技游戏、运动主题、活跃用户</li>
+                        <li><strong>清新薄荷风格：</strong> 全年龄游戏、轻松娱乐、广泛受众</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-2">技术特点：</h4>
+                    <ul class="space-y-2 text-gray-700">
+                        <li>• 响应式设计，适配所有设备</li>
+                        <li>• CSS3 动画效果，提升用户体验</li>
+                        <li>• 渐变背景和阴影效果</li>
+                        <li>• 发光文字和按钮特效</li>
+                        <li>• 平滑的过渡动画</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

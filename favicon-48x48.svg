@@ -1,0 +1,14 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="modernGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" stop-color="#0d1117"/>
+<stop offset="100%" stop-color="#161b22"/>
+</linearGradient>
+</defs>
+<rect width="48" height="48" rx="9.6" fill="url(#modernGradient)"/>
+<circle cx="24" cy="24" r="16" fill="#58a6ff" opacity="0.2"/>
+<circle cx="24" cy="24" r="9.6" fill="#58a6ff" opacity="0.4"/>
+<circle cx="24" cy="24" r="4.8" fill="#58a6ff"/>
+<path d="M12 12L36 36M36 12L12 36" stroke="#f85149" stroke-width="2.4" stroke-linecap="round"/>
+<circle cx="24" cy="8" r="1.6" fill="#7c3aed"/>
+</svg>

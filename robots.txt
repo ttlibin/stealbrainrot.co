@@ -1,0 +1,24 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://stealbrainrot.co/sitemap.xml
+
+# Crawl-delay for better server performance
+Crawl-delay: 1
+
+# Allow all language subdomains
+Allow: /zh-cn/
+Allow: /es/
+Allow: /ar/
+Allow: /ko/
+Allow: /ja/
+Allow: /de/
+Allow: /fr/
+
+# Block common unwanted paths
+Disallow: /admin/
+Disallow: /private/
+Disallow: /temp/
+Disallow: /*.log$
+Disallow: /*.tmp$

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    
+    <!-- English (Main Domain) -->
+    <url>
+        <loc>https://stealbrainrot.co/</loc>
+        <lastmod>2025-01-27</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://stealbrainrot.co/" />
+        <xhtml:link rel="alternate" hreflang="zh-cn" href="https://zh-cn.stealbrainrot.co/" />
+        <xhtml:link rel="alternate" hreflang="es" href="https://es.stealbrainrot.co/" />
+        <xhtml:link rel="alternate" hreflang="ar" href="https://ar.stealbrainrot.co/" />
+        <xhtml:link rel="alternate" hreflang="ko" href="https://ko.stealbrainrot.co/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://ja.stealbrainrot.co/" />
+        <xhtml:link rel="alternate" hreflang="de" href="https://de.stealbrainrot.co/" />
+        <xhtml:link rel="alternate" hreflang="fr" href="https://fr.stealbrainrot.co/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://stealbrainrot.co/" />
+    </url>
+    
+    <!-- Chinese Simplified -->
+    <url>
+        <loc>https://zh-cn.stealbrainrot.co/</loc>
+        <lastmod>2025-01-27</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://stealbrainrot.co/" />
+        <xhtml:link rel="alternate" hreflang="zh-cn" href="https://zh-cn.stealbrainrot.co/" />
+        <xhtml:link rel="alternate" hreflang="es" href="https://es.stealbrainrot.co/" />
+        <xhtml:link rel="alternate" hreflang="ar" href="https://ar.stealbrainrot.co/" />
+        <xhtml:link rel="alternate" hreflang="ko" href="https://ko.stealbrainrot.co/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://ja.stealbrainrot.co/" />
+        <xhtml:link rel="alternate" hreflang="de" href="https://de.stealbrainrot.co/" />
+        <xhtml:link rel="alternate" hreflang="fr" href="https://fr.stealbrainrot.co/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://stealbrainrot.co/" />
+    </url>
+    
+    <!-- Spanish -->
+    <url>
+        <loc>https://es.stealbrainrot.co/</loc>
+        <lastmod>2025-01-27</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://stealbrainrot.co/" />
+        <xhtml:link rel="alternate" hreflang="zh-cn" href="https://zh-cn.stealbrainrot.co/" />
+        <xhtml:link rel="alternate" hreflang="es" href="https://es.stealbrainrot.co/" />
+        <xhtml:link rel="alternate" hreflang="ar" href="https://ar.stealbrainrot.co/" />
+        <xhtml:link rel="alternate" hreflang="ko" href="https://ko.stealbrainrot.co/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://ja.stealbrainrot.co/" />
+        <xhtml:link rel="alternate" hreflang="de" href="https://de.stealbrainrot.co/" />
+        <xhtml:link rel="alternate" hreflang="fr" href="https://fr.stealbrainrot.co/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://stealbrainrot.co/" />
+    </url>
+    
+    <!-- Arabic -->
+    <url>
+        <loc>https://ar.stealbrainrot.co/</loc>
+        <lastmod>2025-01-27</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://stealbrainrot.co/" />
+        <xhtml:link rel="alternate" hreflang="zh-cn" href="https://zh-cn.stealbrainrot.co/" />
+        <xhtml:link rel="alternate" hreflang="es" href="https://es.stealbrainrot.co/" />
+        <xhtml:link rel="alternate" hreflang="ar" href="https://ar.stealbrainrot.co/" />
+        <xhtml:link rel="alternate" hreflang="ko" href="https://ko.stealbrainrot.co/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://ja.stealbrainrot.co/" />
+        <xhtml:link rel="alternate" hreflang="de" href="https://de.stealbrainrot.co/" />
+        <xhtml:link rel="alternate" hreflang="fr" href="https://fr.stealbrainrot.co/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://stealbrainrot.co/" />
+    </url>
+    
+    <!-- Korean -->
+    <url>
+        <loc>https://ko.stealbrainrot.co/</loc>
+        <lastmod>2025-01-27</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://stealbrainrot.co/" />
+        <xhtml:link rel="alternate" hreflang="zh-cn" href="https://zh-cn.stealbrainrot.co/" />
+        <xhtml:link rel="alternate" hreflang="es" href="https://es.stealbrainrot.co/" />
+        <xhtml:link rel="alternate" hreflang="ar" href="https://ar.stealbrainrot.co/" />
+        <xhtml:link rel="alternate" hreflang="ko" href="https://ko.stealbrainrot.co/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://ja.stealbrainrot.co/" />
+        <xhtml:link rel="alternate" hreflang="de" href="https://de.stealbrainrot.co/" />
+        <xhtml:link rel="alternate" hreflang="fr" href="https://fr.stealbrainrot.co/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://stealbrainrot.co/" />
+    </url>
+    
+    <!-- Japanese -->
+    <url>
+        <loc>https://ja.stealbrainrot.co/</loc>
+        <lastmod>2025-01-27</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://stealbrainrot.co/" />
+        <xhtml:link rel="alternate" hreflang="zh-cn" href="https://zh-cn.stealbrainrot.co/" />
+        <xhtml:link rel="alternate" hreflang="es" href="https://es.stealbrainrot.co/" />
+        <xhtml:link rel="alternate" hreflang="ar" href="https://ar.stealbrainrot.co/" />
+        <xhtml:link rel="alternate" hreflang="ko" href="https://ko.stealbrainrot.co/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://ja.stealbrainrot.co/" />
+        <xhtml:link rel="alternate" hreflang="de" href="https://de.stealbrainrot.co/" />
+        <xhtml:link rel="alternate" hreflang="fr" href="https://fr.stealbrainrot.co/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://stealbrainrot.co/" />
+    </url>
+    
+    <!-- German -->
+    <url>
+        <loc>https://de.stealbrainrot.co/</loc>
+        <lastmod>2025-01-27</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://stealbrainrot.co/" />
+        <xhtml:link rel="alternate" hreflang="zh-cn" href="https://zh-cn.stealbrainrot.co/" />
+        <xhtml:link rel="alternate" hreflang="es" href="https://es.stealbrainrot.co/" />
+        <xhtml:link rel="alternate" hreflang="ar" href="https://ar.stealbrainrot.co/" />
+        <xhtml:link rel="alternate" hreflang="ko" href="https://ko.stealbrainrot.co/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://ja.stealbrainrot.co/" />
+        <xhtml:link rel="alternate" hreflang="de" href="https://de.stealbrainrot.co/" />
+        <xhtml:link rel="alternate" hreflang="fr" href="https://fr.stealbrainrot.co/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://stealbrainrot.co/" />
+    </url>
+    
+    <!-- French -->
+    <url>
+        <loc>https://fr.stealbrainrot.co/</loc>
+        <lastmod>2025-01-27</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://stealbrainrot.co/" />
+        <xhtml:link rel="alternate" hreflang="zh-cn" href="https://zh-cn.stealbrainrot.co/" />
+        <xhtml:link rel="alternate" hreflang="es" href="https://es.stealbrainrot.co/" />
+        <xhtml:link rel="alternate" hreflang="ar" href="https://ar.stealbrainrot.co/" />
+        <xhtml:link rel="alternate" hreflang="ko" href="https://ko.stealbrainrot.co/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://ja.stealbrainrot.co/" />
+        <xhtml:link rel="alternate" hreflang="de" href="https://de.stealbrainrot.co/" />
+        <xhtml:link rel="alternate" hreflang="fr" href="https://fr.stealbrainrot.co/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://stealbrainrot.co/" />
+    </url>
+    
+</urlset>
