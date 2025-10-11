@@ -317,7 +317,7 @@
                                 <div class="text-6xl mb-4">🎮</div>
                                 <h3 class="text-2xl font-bold mb-4">¿Listo para Jugar?</h3>
                                 <p class="mb-6 opacity-90">¡Haz clic abajo para comenzar a jugar Steal Brainrot!</p>
-                                <button onclick="loadGameInIframe()" class="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-4 px-8 rounded-full text-lg transition-colors shadow-lg">
+                                <button onclick="console.log('Spanish button clicked!'); loadGameInFrame();" class="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-4 px-8 rounded-full text-lg transition-colors shadow-lg">
                                     🚀 Lanzar Juego
                                 </button>
                             </div>
@@ -1058,10 +1058,24 @@
 
         // PWA壳智能游戏启动方案
         function loadGameInFrame() {
+            console.log('loadGameInFrame called in Spanish version');
+            
             const gameLauncher = document.getElementById('gameLauncher');
             const gameLoading = document.getElementById('gameLoading');
             const gameFrame = document.getElementById('gameFrame');
             const gameIframe = document.getElementById('gameIframe');
+            
+            console.log('Elements found:', {
+                gameLauncher: !!gameLauncher,
+                gameLoading: !!gameLoading,
+                gameFrame: !!gameFrame,
+                gameIframe: !!gameIframe
+            });
+            
+            if (!gameLauncher || !gameLoading || !gameFrame || !gameIframe) {
+                console.error('Required elements not found in Spanish version!');
+                return;
+            }
             
             // 显示加载界面
             gameLauncher.classList.add('hidden');
