@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Brainrot Hole — Play Brainrot Hole Free Online Arcade Game</title>
+  <meta name="description" content="Play Brainrot Hole free! Control a chaotic hole to devour everything in sight in this exciting arcade game. No download required!">
+  <link rel="canonical" href="/games/Brainrot-Hole/">
+  <meta property="og:title" content="Brainrot Hole — Play Free Arcade Game">
+  <meta property="og:description" content="Dive into the chaotic world of Brainrot Hole, an arcade game where you control a hole to devour everything in sight.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="/games/Brainrot-Hole/">
+  <meta name="robots" content="index,follow">
+  
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TJ0WVHX547"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TJ0WVHX547');
+  </script>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* 暗黑神秘风格 - 与主页保持一致 */
+    .gradient-bg {
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+        box-shadow: 0 0 30px rgba(26, 26, 46, 0.8), 0 0 60px rgba(15, 52, 96, 0.4);
+        animation: dark-glow 3s ease-in-out infinite alternate;
+    }
+    
+    @keyframes dark-glow {
+        from { 
+            box-shadow: 0 0 40px rgba(255, 0, 128, 0.4), 0 0 80px rgba(0, 255, 255, 0.3), 0 0 120px rgba(255, 69, 0, 0.2);
+            filter: hue-rotate(0deg);
+        }
+        to { 
+            box-shadow: 0 0 60px rgba(255, 0, 128, 0.6), 0 0 100px rgba(0, 255, 255, 0.4), 0 0 140px rgba(255, 69, 0, 0.3);
+            filter: hue-rotate(10deg);
+        }
+    }
+    
+    /* 游戏容器样式 */
+    .game-container {
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+        border: 2px solid rgba(255, 0, 128, 0.3);
+        box-shadow: 0 0 20px rgba(255, 0, 128, 0.2), 0 0 40px rgba(0, 255, 255, 0.1);
+    }
+    
+    /* 内容区域样式 */
+    .content-area {
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+        border: 1px solid rgba(255, 0, 128, 0.2);
+        box-shadow: 0 0 15px rgba(255, 0, 128, 0.1);
+    }
+    
+    /* 按钮样式 */
+    .game-btn {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
+        transition: all 0.3s ease;
+    }
+    
+    .game-btn:hover {
+        box-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+        transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-white min-h-screen">
+  <!-- Site Header (matches homepage) -->
+  <header class="gradient-bg text-white shadow-lg">
+    <div class="w-full px-6 py-4">
+      <div class="container mx-auto flex items-center justify-between">
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10">
+            <img src="../../favicon.svg" alt="Steal Brainrot Online" class="w-full h-full">
+          </div>
+          <h2 class="text-2xl font-bold">Steal Brainrot Online</h2>
+        </div>
+        <a href="../../index.html" class="bg-white/20 hover:bg-white/30 text-white font-semibold px-3 py-2 rounded-lg border border-white/30">← Back to Home</a>
+      </div>
+    </div>
+  </header>
+  <main class="pb-6 pt-0">
+    <div class="w-full">
+      <div class="bg-gradient-to-r from-purple-600 to-pink-500 text-white px-6 py-6">
+        <div class="container mx-auto">
+          <h1 class="text-2xl font-bold">Brainrot Hole</h1>
+        </div>
+      </div>
+    </div>
+
+    <section aria-label="Game Player" class="max-w-4xl mx-auto mt-6">
+      <div id="brainrotHolePlayer" class="bg-white rounded-lg shadow-xl overflow-hidden">
+        <div class="aspect-video">
+          <iframe id="brainrotHoleIframe" class="w-full h-full border-0" src="https://steal-brainrot.io/brainrot-hole.embed" title="Brainrot Hole" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+      <div class="bg-white rounded-lg shadow-md border border-gray-100 mt-3 p-4 flex items-center justify-between">
+        <button id="brainrotHoleFullscreenBtn" class="px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold">⛶ Fullscreen</button>
+        <div class="flex items-center gap-4 text-sm text-gray-700">
+          <button id="brainrotHoleLikeBtn" class="flex items-center gap-1 hover:text-green-600"><span>👍</span><span id="brainrotHoleLikeCount">892</span></button>
+          <button id="brainrotHoleDislikeBtn" class="flex items-center gap-1 hover:text-red-600"><span>👎</span><span id="brainrotHoleDislikeCount">43</span></button>
+          <span>Score: <span id="brainrotHoleScore" class="font-bold text-purple-600">4.6</span></span>
+        </div>
+      </div>
+    </section>
+
+    <article class="max-w-4xl mx-auto mt-8 bg-white rounded-lg shadow-lg p-8">
+      <h2 class="text-2xl md:text-3xl font-bold text-center mb-6">What Is Brainrot Hole?</h2>
+      <p class="mb-4 text-gray-700"><strong>Brainrot Hole</strong> is an exciting arcade-style game that challenges players to control a chaotic hole and devour everything in sight. In <strong>Brainrot Hole</strong>, players navigate through increasingly complex levels, absorbing objects and defeating brainrot enemies that stand in their way. What makes <strong>Brainrot Hole</strong> unique is its simple yet addictive gameplay mechanics, combined with progressively challenging obstacles that test both reflexes and strategic thinking.</p>
+
+      <p class="mb-8 text-gray-700">The game's core mechanics revolve around precise hole control, object absorption, and enemy avoidance. Players must carefully position their hole to consume all objects while avoiding or defeating brainrot enemies that attempt to hinder progress. The game's arcade-style nature ensures that every level presents new challenges and requires quick thinking, making <strong>Brainrot Hole</strong> an engaging experience that combines strategy with fast-paced action.</p>
+
+      <h2 class="text-2xl font-bold mb-4 text-purple-600">Brainrot Hole Game Features</h2>
+      <ul class="list-disc pl-6 space-y-2 text-gray-700">
+        <li><strong>Chaotic hole control:</strong> Master the art of controlling your hole in <strong>Brainrot Hole</strong>.</li>
+        <li><strong>Object absorption mechanics:</strong> Devour everything in sight in <strong>Brainrot Hole</strong>.</li>
+        <li><strong>Progressive difficulty:</strong> Face increasingly challenging levels in <strong>Brainrot Hole</strong>.</li>
+        <li><strong>Brainrot enemy encounters:</strong> Defeat various brainrot enemies in <strong>Brainrot Hole</strong>.</li>
+        <li><strong>Arcade-style gameplay:</strong> Enjoy classic arcade mechanics in <strong>Brainrot Hole</strong>.</li>
+        <li><strong>Cross-platform compatibility:</strong> Play <strong>Brainrot Hole</strong> on desktop, mobile, and tablet devices.</li>
+      </ul>
+
+      <h2 class="text-2xl font-bold mt-8 mb-3 text-green-600">How to Play Brainrot Hole</h2>
+      <p class="text-gray-700 mb-4">Getting started with <strong>Brainrot Hole</strong> requires understanding the basic hole control mechanics and object absorption system. Begin by learning how to position your hole over objects to make them fall in and be consumed. In <strong>Brainrot Hole</strong>, you'll need to balance between aggressive absorption and careful positioning, as both are essential for success. The key to victory is timing and precision in your hole movements.</p>
+
+      <p class="text-gray-700 mb-6">The strategic depth of <strong>Brainrot Hole</strong> comes from the need to plan your movements while adapting to the placement of objects and enemies. You'll need to decide when to be aggressive in your absorption and when to be more cautious around brainrot enemies. The game's arcade-style nature means that every level requires quick reflexes and precise control, making <strong>Brainrot Hole</strong> an exciting and challenging experience.</p>
+
+      <h2 class="text-2xl font-bold mb-3 text-blue-600">Advanced Strategies for Brainrot Hole</h2>
+      <ul class="list-disc pl-6 space-y-2 text-gray-700">
+        <li><strong>Hole positioning:</strong> Master precise hole positioning techniques in <strong>Brainrot Hole</strong>.</li>
+        <li><strong>Object prioritization:</strong> Learn which objects to absorb first in <strong>Brainrot Hole</strong>.</li>
+        <li><strong>Enemy avoidance:</strong> Develop strategies to avoid brainrot enemies in <strong>Brainrot Hole</strong>.</li>
+        <li><strong>Level planning:</strong> Plan your approach for each level in <strong>Brainrot Hole</strong>.</li>
+        <li><strong>Timing optimization:</strong> Perfect your timing for maximum efficiency in <strong>Brainrot Hole</strong>.</li>
+      </ul>
+
+      <h2 class="text-2xl font-bold mt-8 mb-3 text-indigo-600">Why Play Brainrot Hole</h2>
+      <p class="text-gray-700"><strong>Brainrot Hole</strong> offers a unique and engaging arcade experience that combines simple controls with challenging gameplay. The game's focus on precision and strategy creates an exciting environment where every movement matters and every level presents new challenges. Whether you enjoy arcade-style games, strategic thinking, or simply want to test your reflexes and coordination, <strong>Brainrot Hole</strong> provides a compelling and challenging gaming experience.</p>
+
+      <h2 class="text-2xl font-bold mt-8 mb-3 text-pink-600">Brainrot Hole FAQ</h2>
+      <dl class="text-gray-700">
+        <dt>Is Brainrot Hole free to play?</dt>
+        <dd>Yes. <strong>Brainrot Hole</strong> is completely free to play in your browser with no download required.</dd>
+        <dt>Do I need to install anything to play Brainrot Hole?</dt>
+        <dd>No. <strong>Brainrot Hole</strong> runs entirely in your web browser, making it accessible on any device.</dd>
+        <dt>Can I play Brainrot Hole on mobile devices?</dt>
+        <dd>Yes. <strong>Brainrot Hole</strong> is optimized for mobile devices with touch controls for easy navigation.</dd>
+        <dt>What makes Brainrot Hole different from other arcade games?</dt>
+        <dd><strong>Brainrot Hole</strong> features unique hole control mechanics and chaotic gameplay elements that set it apart from other arcade games.</dd>
+        <dt>Is Brainrot Hole multiplayer?</dt>
+        <dd>No. <strong>Brainrot Hole</strong> is a single-player arcade game focused on individual skill and progression.</dd>
+        <dt>Will my progress be saved in Brainrot Hole?</dt>
+        <dd>Your progress in <strong>Brainrot Hole</strong> is session-based, but you can continue playing and improving your skills over time.</dd>
+      </dl>
+
+      <!-- Related Games Section -->
+      <div class="mt-8 pt-6 border-t border-gray-200">
+        <h3 class="text-xl font-bold mb-4 text-gray-800">More Games Like Brainrot Hole</h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <a href="../Steal-Brainrot-Online/index.html" class="block rounded-lg overflow-hidden group">
+            <div class="relative w-full bg-gray-100" style="min-height:120px;">
+              <div class="absolute inset-0 bg-center bg-cover transition-transform duration-300 group-hover:scale-105" style="background-image:url('../../images/steal-a-brainrot-online.webp');"></div>
+              <div class="relative z-10 flex items-end justify-center h-full p-4">
+                <div class="bg-white/85 backdrop-blur-sm px-3 py-1 rounded text-sm font-medium text-gray-900 shadow-sm">Steal Brainrot Online</div>
+              </div>
+            </div>
+          </a>
+          <a href="../Steal-a-Brainrot-3D/index.html" class="block rounded-lg overflow-hidden group">
+            <div class="relative w-full bg-gray-100" style="min-height:120px;">
+              <div class="absolute inset-0 bg-center bg-cover transition-transform duration-300 group-hover:scale-105" style="background-image:url('../../images/Steal-a-Brainrot-3D.webp');"></div>
+              <div class="relative z-10 flex items-end justify-center h-full p-4">
+                <div class="bg-white/85 backdrop-blur-sm px-3 py-1 rounded text-sm font-medium text-gray-900 shadow-sm">Steal a Brainrot 3D</div>
+              </div>
+            </div>
+          </a>
+          <a href="../Plants-vs-Brainrots/index.html" class="block rounded-lg overflow-hidden group">
+            <div class="relative w-full bg-gray-100" style="min-height:120px;">
+              <div class="absolute inset-0 bg-center bg-cover transition-transform duration-300 group-hover:scale-105" style="background-image:url('../../images/plants-vs-brainrots.webp');"></div>
+              <div class="relative z-10 flex items-end justify-center h-full p-4">
+                <div class="bg-white/85 backdrop-blur-sm px-3 py-1 rounded text-sm font-medium text-gray-900 shadow-sm">Plants vs Brainrots</div>
+              </div>
+            </div>
+          </a>
+          <a href="../99-Nights-In-The-Forest/index.html" class="block rounded-lg overflow-hidden group">
+            <div class="relative w-full bg-gray-100" style="min-height:120px;">
+              <div class="absolute inset-0 bg-center bg-cover transition-transform duration-300 group-hover:scale-105" style="background-image:url('../../images/99-Nights-in-the-Forest.webp');"></div>
+              <div class="relative z-10 flex items-end justify-center h-full p-4">
+                <div class="bg-white/85 backdrop-blur-sm px-3 py-1 rounded text-sm font-medium text-gray-900 shadow-sm">99 Nights In The Forest</div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </article>
+  </main>
+</body>
+<script>
+  (function(){
+    // Fullscreen for the embedded iframe/container
+    var fsBtn = document.getElementById('brainrotHoleFullscreenBtn');
+    var player = document.getElementById('brainrotHolePlayer');
+    if(fsBtn && player){
+      fsBtn.addEventListener('click', function(){
+        var el = player;
+        var req = el.requestFullscreen || el.webkitRequestFullscreen || el.mozRequestFullScreen || el.msRequestFullscreen;
+        if (req) {
+          req.call(el);
+        }
+      });
+    }
+
+    // Simple rating like homepage
+    var likeBtn = document.getElementById('brainrotHoleLikeBtn');
+    var dislikeBtn = document.getElementById('brainrotHoleDislikeBtn');
+    var likeEl = document.getElementById('brainrotHoleLikeCount');
+    var dislikeEl = document.getElementById('brainrotHoleDislikeCount');
+    var scoreEl = document.getElementById('brainrotHoleScore');
+
+    function updateScore(){
+      var l = parseInt(likeEl.textContent)||0;
+      var d = parseInt(dislikeEl.textContent)||0;
+      var t = l + d;
+      var s = t>0 ? (l/t)*5 : 4.6;
+      scoreEl.textContent = s.toFixed(1);
+    }
+    if(likeBtn){
+      likeBtn.addEventListener('click', function(){
+        likeEl.textContent = (parseInt(likeEl.textContent)||0) + 1;
+        updateScore();
+      });
+    }
+    if(dislikeBtn){
+      dislikeBtn.addEventListener('click', function(){
+        dislikeEl.textContent = (parseInt(dislikeEl.textContent)||0) + 1;
+        updateScore();
+      });
+    }
+  })();
+</script>
+</html>
