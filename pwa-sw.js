@@ -14,7 +14,7 @@ const urlsToCache = [
 ];
 
 const gameUrlsToCache = [
-  'https://st.8games.net/7/8g/igra-ukradi-brejnrot-onlajn/',
+    'https://steal-brainrot.io/steal-brainrot-online.embed',
   'https://www.gameflare.com/online-game/roblox-steal-a-brainrot/',
   'https://www.crazygames.com/game/steal-brainrot-online'
 ];
