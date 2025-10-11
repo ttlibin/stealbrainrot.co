@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Steal The Italian Brainrot — Play Steal The Italian Brainrot Free Online Game</title>
+  <meta name="description" content="Play Steal The Italian Brainrot free! Experience the ultimate Italian-themed Brainrot collection game with unique characters and challenges. No download required!">
+  <link rel="canonical" href="/games/Steal-The-Italian-Brainrot/">
+  <meta property="og:title" content="Steal The Italian Brainrot — Play Free Italian Game">
+  <meta property="og:description" content="Experience the ultimate Italian-themed Brainrot collection game in Steal The Italian Brainrot, with unique characters and exciting challenges.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="/games/Steal-The-Italian-Brainrot/">
+  <meta name="robots" content="index,follow">
+  
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TJ0WVHX547"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TJ0WVHX547');
+  </script>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* 暗黑神秘风格 - 与主页保持一致 */
+    .gradient-bg {
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+        box-shadow: 0 0 30px rgba(26, 26, 46, 0.8), 0 0 60px rgba(15, 52, 96, 0.4);
+        animation: dark-glow 3s ease-in-out infinite alternate;
+    }
+    
+    @keyframes dark-glow {
+        from { 
+            box-shadow: 0 0 40px rgba(255, 0, 128, 0.4), 0 0 80px rgba(0, 255, 255, 0.3), 0 0 120px rgba(255, 69, 0, 0.2);
+            filter: hue-rotate(0deg);
+        }
+        to { 
+            box-shadow: 0 0 60px rgba(255, 0, 128, 0.6), 0 0 100px rgba(0, 255, 255, 0.4), 0 0 140px rgba(255, 69, 0, 0.3);
+            filter: hue-rotate(10deg);
+        }
+    }
+    
+    /* 游戏容器样式 */
+    .game-container {
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+        border: 2px solid rgba(255, 0, 128, 0.3);
+        box-shadow: 0 0 20px rgba(255, 0, 128, 0.2), 0 0 40px rgba(0, 255, 255, 0.1);
+    }
+    
+    /* 内容区域样式 */
+    .content-area {
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+        border: 1px solid rgba(255, 0, 128, 0.2);
+        box-shadow: 0 0 15px rgba(255, 0, 128, 0.1);
+    }
+    
+    /* 按钮样式 */
+    .game-btn {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
+        transition: all 0.3s ease;
+    }
+    
+    .game-btn:hover {
+        box-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+        transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-white min-h-screen">
+  <!-- Site Header (matches homepage) -->
+  <header class="gradient-bg text-white shadow-lg">
+    <div class="w-full px-6 py-4">
+      <div class="container mx-auto flex items-center justify-between">
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10">
+            <img src="../../favicon.svg" alt="Steal Brainrot Online" class="w-full h-full">
+          </div>
+          <h2 class="text-2xl font-bold">Steal Brainrot Online</h2>
+        </div>
+        <a href="../../index.html" class="bg-white/20 hover:bg-white/30 text-white font-semibold px-3 py-2 rounded-lg border border-white/30">← Back to Home</a>
+      </div>
+    </div>
+  </header>
+  <main class="pb-6 pt-0">
+    <div class="w-full">
+      <div class="bg-gradient-to-r from-purple-600 to-pink-500 text-white px-6 py-6">
+        <div class="container mx-auto">
+          <h1 class="text-2xl font-bold">Steal The Italian Brainrot</h1>
+        </div>
+      </div>
+    </div>
+
+    <section aria-label="Game Player" class="max-w-4xl mx-auto mt-6">
+      <div id="stibPlayer" class="bg-white rounded-lg shadow-xl overflow-hidden">
+        <div class="aspect-video">
+          <iframe id="stibIframe" class="w-full h-full border-0" src="https://steal-brainrot.io/steal-the-italian-brainrot.embed" title="Steal The Italian Brainrot" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+      <div class="bg-white rounded-lg shadow-md border border-gray-100 mt-3 p-4 flex items-center justify-between">
+        <button id="stibFullscreenBtn" class="px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold">⛶ Fullscreen</button>
+        <div class="flex items-center gap-4 text-sm text-gray-700">
+          <button id="stibLikeBtn" class="flex items-center gap-1 hover:text-green-600"><span>👍</span><span id="stibLikeCount">1450</span></button>
+          <button id="stibDislikeBtn" class="flex items-center gap-1 hover:text-red-600"><span>👎</span><span id="stibDislikeCount">105</span></button>
+          <span>Score: <span id="stibScore" class="font-bold text-purple-600">4.8</span></span>
+        </div>
+      </div>
+    </section>
+
+    <article class="max-w-4xl mx-auto mt-8 bg-white rounded-lg shadow-lg p-8">
+      <h2 class="text-2xl md:text-3xl font-bold text-center mb-6">What Is Steal The Italian Brainrot?</h2>
+      <p class="mb-4 text-gray-700"><strong>Steal The Italian Brainrot</strong> is an exciting collection game that features Italian-themed Brainrot characters with unique abilities and characteristics. In <strong>Steal The Italian Brainrot</strong>, players must navigate through Italian-inspired environments, collect rare Italian Brainrot characters, and overcome various challenges. What makes <strong>Steal The Italian Brainrot</strong> unique is its focus on Italian culture and themes, featuring characters and environments inspired by Italian traditions and landmarks.</p>
+
+      <p class="mb-8 text-gray-700">The game's core mechanics revolve around character collection, strategic planning, and cultural exploration. Players must balance between collecting Italian Brainrot characters and managing their resources effectively. The game's Italian theme ensures that players can experience a unique cultural perspective while enjoying the familiar Brainrot collection mechanics, making <strong>Steal The Italian Brainrot</strong> a distinctive and engaging experience.</p>
+
+      <h2 class="text-2xl font-bold mb-4 text-purple-600">Steal The Italian Brainrot Game Features</h2>
+      <ul class="list-disc pl-6 space-y-2 text-gray-700">
+        <li><strong>Italian-themed characters:</strong> Collect unique Italian Brainrot characters in <strong>Steal The Italian Brainrot</strong>.</li>
+        <li><strong>Cultural exploration:</strong> Explore Italian-inspired environments in <strong>Steal The Italian Brainrot</strong>.</li>
+        <li><strong>Strategic gameplay:</strong> Plan your collection strategy in <strong>Steal The Italian Brainrot</strong>.</li>
+        <li><strong>Unique abilities:</strong> Discover characters with Italian-themed abilities in <strong>Steal The Italian Brainrot</strong>.</li>
+        <li><strong>Challenging obstacles:</strong> Face Italian-themed challenges in <strong>Steal The Italian Brainrot</strong>.</li>
+        <li><strong>Cross-platform compatibility:</strong> Play <strong>Steal The Italian Brainrot</strong> on desktop, mobile, and tablet devices.</li>
+      </ul>
+
+      <h2 class="text-2xl font-bold mt-8 mb-3 text-green-600">How to Play Steal The Italian Brainrot</h2>
+      <p class="text-gray-700 mb-4">Getting started with <strong>Steal The Italian Brainrot</strong> requires understanding the basic collection mechanics and Italian-themed gameplay elements. Begin by exploring the Italian-inspired environments and learning about the unique characters. In <strong>Steal The Italian Brainrot</strong>, you'll need to balance between character collection and resource management, as both are essential for success. The key to victory is understanding each character's unique abilities and how they can work together.</p>
+
+      <p class="text-gray-700 mb-6">The strategic depth of <strong>Steal The Italian Brainrot</strong> comes from the need to manage your collection while continuously exploring for new Italian characters. You'll need to decide when to focus on discovery and when to focus on optimization, when to invest in new characters and when to improve existing ones. The game's Italian theme means that strategies must be adapted to the cultural context, requiring constant adaptation and improvement of your collection approach.</p>
+
+      <h2 class="text-2xl font-bold mb-3 text-blue-600">Advanced Strategies for Steal The Italian Brainrot</h2>
+      <ul class="list-disc pl-6 space-y-2 text-gray-700">
+        <li><strong>Character synergy:</strong> Combine Italian characters with complementary abilities in <strong>Steal The Italian Brainrot</strong>.</li>
+        <li><strong>Cultural exploration:</strong> Explore Italian-themed environments for rare characters in <strong>Steal The Italian Brainrot</strong>.</li>
+        <li><strong>Resource management:</strong> Balance between discovery and optimization in <strong>Steal The Italian Brainrot</strong>.</li>
+        <li><strong>Strategy adaptation:</strong> Adapt your strategies to Italian-themed challenges in <strong>Steal The Italian Brainrot</strong>.</li>
+        <li><strong>Collection planning:</strong> Plan your collection strategy for Italian characters in <strong>Steal The Italian Brainrot</strong>.</li>
+      </ul>
+
+      <h2 class="text-2xl font-bold mt-8 mb-3 text-indigo-600">Why Play Steal The Italian Brainrot</h2>
+      <p class="text-gray-700"><strong>Steal The Italian Brainrot</strong> offers a unique and culturally rich collection experience that combines familiar Brainrot mechanics with Italian themes and characters. The game's focus on Italian culture and unique characters creates an exciting environment where cultural exploration and character collection go hand in hand. Whether you enjoy collection games, cultural exploration, or simply want to experience a unique take on the Brainrot universe, <strong>Steal The Italian Brainrot</strong> provides a compelling and distinctive gaming experience.</p>
+
+      <h2 class="text-2xl font-bold mt-8 mb-3 text-pink-600">Steal The Italian Brainrot FAQ</h2>
+      <dl class="text-gray-700">
+        <dt>Is Steal The Italian Brainrot free to play?</dt>
+        <dd>Yes. <strong>Steal The Italian Brainrot</strong> is completely free to play in your browser with no download required.</dd>
+        <dt>Do I need to install anything to play Steal The Italian Brainrot?</dt>
+        <dd>No. <strong>Steal The Italian Brainrot</strong> runs entirely in your web browser, making it accessible on any device.</dd>
+        <dt>Can I play Steal The Italian Brainrot on mobile devices?</dt>
+        <dd>Yes. <strong>Steal The Italian Brainrot</strong> is optimized for mobile devices with touch controls for easy navigation.</dd>
+        <dt>What makes Steal The Italian Brainrot different from other Brainrot games?</dt>
+        <dd><strong>Steal The Italian Brainrot</strong> features Italian-themed characters and environments that set it apart from other Brainrot games.</dd>
+        <dt>Is Steal The Italian Brainrot multiplayer?</dt>
+        <dd><strong>Steal The Italian Brainrot</strong> focuses on single-player collection gameplay with Italian-themed elements.</dd>
+        <dt>Will my progress be saved in Steal The Italian Brainrot?</dt>
+        <dd>Yes. Your progress in <strong>Steal The Italian Brainrot</strong> is automatically saved, so you can continue from where you left off.</dd>
+      </dl>
+
+      <!-- Related Games Section -->
+      <div class="mt-8 pt-6 border-t border-gray-200">
+        <h3 class="text-xl font-bold mb-4 text-gray-800">More Games Like Steal The Italian Brainrot</h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <a href="../Steal-Brainrot-Online/index.html" class="block rounded-lg overflow-hidden group">
+            <div class="relative w-full bg-gray-100" style="min-height:120px;">
+              <div class="absolute inset-0 bg-center bg-cover transition-transform duration-300 group-hover:scale-105" style="background-image:url('../../images/steal-a-brainrot-online.webp');"></div>
+              <div class="relative z-10 flex items-end justify-center h-full p-4">
+                <div class="bg-white/85 backdrop-blur-sm px-3 py-1 rounded text-sm font-medium text-gray-900 shadow-sm">Steal Brainrot Online</div>
+              </div>
+            </div>
+          </a>
+          <a href="../Steal-a-Brainrot-3D/index.html" class="block rounded-lg overflow-hidden group">
+            <div class="relative w-full bg-gray-100" style="min-height:120px;">
+              <div class="absolute inset-0 bg-center bg-cover transition-transform duration-300 group-hover:scale-105" style="background-image:url('../../images/Steal-a-Brainrot-3D.webp');"></div>
+              <div class="relative z-10 flex items-end justify-center h-full p-4">
+                <div class="bg-white/85 backdrop-blur-sm px-3 py-1 rounded text-sm font-medium text-gray-900 shadow-sm">Steal a Brainrot 3D</div>
+              </div>
+            </div>
+          </a>
+          <a href="../Plants-vs-Brainrots/index.html" class="block rounded-lg overflow-hidden group">
+            <div class="relative w-full bg-gray-100" style="min-height:120px;">
+              <div class="absolute inset-0 bg-center bg-cover transition-transform duration-300 group-hover:scale-105" style="background-image:url('../../images/plants-vs-brainrots.webp');"></div>
+              <div class="relative z-10 flex items-end justify-center h-full p-4">
+                <div class="bg-white/85 backdrop-blur-sm px-3 py-1 rounded text-sm font-medium text-gray-900 shadow-sm">Plants vs Brainrots</div>
+              </div>
+            </div>
+          </a>
+          <a href="../99-Nights-In-The-Forest/index.html" class="block rounded-lg overflow-hidden group">
+            <div class="relative w-full bg-gray-100" style="min-height:120px;">
+              <div class="absolute inset-0 bg-center bg-cover transition-transform duration-300 group-hover:scale-105" style="background-image:url('../../images/99-Nights-in-the-Forest.webp');"></div>
+              <div class="relative z-10 flex items-end justify-center h-full p-4">
+                <div class="bg-white/85 backdrop-blur-sm px-3 py-1 rounded text-sm font-medium text-gray-900 shadow-sm">99 Nights In The Forest</div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </article>
+  </main>
+</body>
+<script>
+  (function(){
+    // Fullscreen for the embedded iframe/container
+    var fsBtn = document.getElementById('stibFullscreenBtn');
+    var player = document.getElementById('stibPlayer');
+    if(fsBtn && player){
+      fsBtn.addEventListener('click', function(){
+        var el = player;
+        var req = el.requestFullscreen || el.webkitRequestFullscreen || el.mozRequestFullScreen || el.msRequestFullscreen;
+        if (req) {
+          req.call(el);
+        }
+      });
+    }
+
+    // Simple rating like homepage
+    var likeBtn = document.getElementById('stibLikeBtn');
+    var dislikeBtn = document.getElementById('stibDislikeBtn');
+    var likeEl = document.getElementById('stibLikeCount');
+    var dislikeEl = document.getElementById('stibDislikeCount');
+    var scoreEl = document.getElementById('stibScore');
+
+    function updateScore(){
+      var l = parseInt(likeEl.textContent)||0;
+      var d = parseInt(dislikeEl.textContent)||0;
+      var t = l + d;
+      var s = t>0 ? (l/t)*5 : 4.8;
+      scoreEl.textContent = s.toFixed(1);
+    }
+    if(likeBtn){
+      likeBtn.addEventListener('click', function(){
+        likeEl.textContent = (parseInt(likeEl.textContent)||0) + 1;
+        updateScore();
+      });
+    }
+    if(dislikeBtn){
+      dislikeBtn.addEventListener('click', function(){
+        dislikeEl.textContent = (parseInt(dislikeEl.textContent)||0) + 1;
+        updateScore();
+      });
+    }
+  })();
+</script>
+</html>

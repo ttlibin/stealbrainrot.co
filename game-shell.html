@@ -297,7 +297,7 @@
     <script>
         class PWAGameShell {
             constructor() {
-                this.gameUrl = 'https://www.gamenora.com/embed/steal-a-brainrot';
+                this.gameUrl = 'https://st.8games.net/7/8g/igra-ukradi-brejnrot-onlajn/';
                 this.fallbackUrls = [
                     'https://www.gameflare.com/online-game/roblox-steal-a-brainrot/',
                     'https://www.crazygames.com/game/steal-brainrot-online',
@@ -333,14 +333,26 @@
                 try {
                     this.updateLoadingStatus('Preparing Game Launch', 'Setting up enhanced gaming experience...');
                     
-                    // 延迟后直接跳转到游戏
+                    // 延迟后在iframe中加载游戏
                     setTimeout(() => {
-                        this.updateLoadingStatus('Launching Game', 'Opening Steal Brainrot...');
+                        this.updateLoadingStatus('Loading Game', 'Opening Steal Brainrot in PWA mode...');
                         
-                        // 直接跳转到游戏，而不是在iframe中加载
-                        setTimeout(() => {
-                            window.location.href = this.gameUrl;
-                        }, 1000);
+                        // 在iframe中加载游戏
+                        this.gameWebview.src = this.gameUrl;
+                        
+                        // 设置加载超时检测
+                        this.setupLoadTimeout();
+                        
+                        // 监听iframe加载完成
+                        this.gameWebview.onload = () => {
+                            this.hideLoading();
+                        };
+                        
+                        // 监听iframe加载错误
+                        this.gameWebview.onerror = () => {
+                            this.handleLoadError();
+                        };
+                        
                     }, 2000);
                     
                 } catch (error) {
@@ -352,11 +364,18 @@
             }
             
             setupLoadTimeout() {
-                // 由于直接跳转，不需要iframe超时检测
-                // 保留此方法以防需要回退逻辑
+                // 设置iframe加载超时检测
+                this.loadTimeout = setTimeout(() => {
+                    console.log('Game load timeout - showing error');
+                    this.handleLoadError();
+                }, 10000); // 10秒超时
             }
             
             hideLoading() {
+                // 清除加载超时
+                if (this.loadTimeout) {
+                    clearTimeout(this.loadTimeout);
+                }
                 this.loadingOverlay.classList.add('hidden');
             }
             

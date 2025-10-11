@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Guess The Brainrot — Play Guess The Brainrot Free Online Puzzle Game</title>
+  <meta name="description" content="Play Guess The Brainrot free! Test your knowledge with this exciting puzzle game featuring Brainrot characters and challenging questions. No download required!">
+  <link rel="canonical" href="/games/Guess-The-Brainrot/">
+  <meta property="og:title" content="Guess The Brainrot — Play Free Puzzle Game">
+  <meta property="og:description" content="Test your knowledge with this exciting puzzle game featuring Brainrot characters and challenging questions in Guess The Brainrot.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="/games/Guess-The-Brainrot/">
+  <meta name="robots" content="index,follow">
+  
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TJ0WVHX547"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TJ0WVHX547');
+  </script>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* 暗黑神秘风格 - 与主页保持一致 */
+    .gradient-bg {
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+        box-shadow: 0 0 30px rgba(26, 26, 46, 0.8), 0 0 60px rgba(15, 52, 96, 0.4);
+        animation: dark-glow 3s ease-in-out infinite alternate;
+    }
+    
+    @keyframes dark-glow {
+        from { 
+            box-shadow: 0 0 40px rgba(255, 0, 128, 0.4), 0 0 80px rgba(0, 255, 255, 0.3), 0 0 120px rgba(255, 69, 0, 0.2);
+            filter: hue-rotate(0deg);
+        }
+        to { 
+            box-shadow: 0 0 60px rgba(255, 0, 128, 0.6), 0 0 100px rgba(0, 255, 255, 0.4), 0 0 140px rgba(255, 69, 0, 0.3);
+            filter: hue-rotate(10deg);
+        }
+    }
+    
+    /* 游戏容器样式 */
+    .game-container {
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+        border: 2px solid rgba(255, 0, 128, 0.3);
+        box-shadow: 0 0 20px rgba(255, 0, 128, 0.2), 0 0 40px rgba(0, 255, 255, 0.1);
+    }
+    
+    /* 内容区域样式 */
+    .content-area {
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+        border: 1px solid rgba(255, 0, 128, 0.2);
+        box-shadow: 0 0 15px rgba(255, 0, 128, 0.1);
+    }
+    
+    /* 按钮样式 */
+    .game-btn {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
+        transition: all 0.3s ease;
+    }
+    
+    .game-btn:hover {
+        box-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+        transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-white min-h-screen">
+  <!-- Site Header (matches homepage) -->
+  <header class="gradient-bg text-white shadow-lg">
+    <div class="w-full px-6 py-4">
+      <div class="container mx-auto flex items-center justify-between">
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10">
+            <img src="../../favicon.svg" alt="Steal Brainrot Online" class="w-full h-full">
+          </div>
+          <h2 class="text-2xl font-bold">Steal Brainrot Online</h2>
+        </div>
+        <a href="../../index.html" class="bg-white/20 hover:bg-white/30 text-white font-semibold px-3 py-2 rounded-lg border border-white/30">← Back to Home</a>
+      </div>
+    </div>
+  </header>
+  <main class="pb-6 pt-0">
+    <div class="w-full">
+      <div class="bg-gradient-to-r from-purple-600 to-pink-500 text-white px-6 py-6">
+        <div class="container mx-auto">
+          <h1 class="text-2xl font-bold">Guess The Brainrot</h1>
+        </div>
+      </div>
+    </div>
+
+    <section aria-label="Game Player" class="max-w-4xl mx-auto mt-6">
+      <div id="gtbPlayer" class="bg-white rounded-lg shadow-xl overflow-hidden">
+        <div class="aspect-video">
+          <iframe id="gtbIframe" class="w-full h-full border-0" src="https://steal-brainrot.io/guess-the-brainrot.embed" title="Guess The Brainrot" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+      <div class="bg-white rounded-lg shadow-md border border-gray-100 mt-3 p-4 flex items-center justify-between">
+        <button id="gtbFullscreenBtn" class="px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold">⛶ Fullscreen</button>
+        <div class="flex items-center gap-4 text-sm text-gray-700">
+          <button id="gtbLikeBtn" class="flex items-center gap-1 hover:text-green-600"><span>👍</span><span id="gtbLikeCount">1280</span></button>
+          <button id="gtbDislikeBtn" class="flex items-center gap-1 hover:text-red-600"><span>👎</span><span id="gtbDislikeCount">92</span></button>
+          <span>Score: <span id="gtbScore" class="font-bold text-purple-600">4.6</span></span>
+        </div>
+      </div>
+    </section>
+
+    <article class="max-w-4xl mx-auto mt-8 bg-white rounded-lg shadow-lg p-8">
+      <h2 class="text-2xl md:text-3xl font-bold text-center mb-6">What Is Guess The Brainrot?</h2>
+      <p class="mb-4 text-gray-700"><strong>Guess The Brainrot</strong> is an engaging puzzle game that challenges players to identify Brainrot characters based on clues, hints, and visual elements. In <strong>Guess The Brainrot</strong>, players must use their knowledge of Brainrot characters and their unique characteristics to solve puzzles and progress through levels. What makes <strong>Guess The Brainrot</strong> unique is its combination of puzzle-solving mechanics with Brainrot character knowledge, creating an entertaining and educational experience.</p>
+
+      <p class="mb-8 text-gray-700">The game's core mechanics revolve around observation, deduction, and character recognition. Players must carefully analyze clues, examine visual elements, and use their knowledge of Brainrot characters to make correct guesses. The game's progressive difficulty ensures that players must continuously improve their knowledge and observation skills, making <strong>Guess The Brainrot</strong> a challenging and rewarding experience.</p>
+
+      <h2 class="text-2xl font-bold mb-4 text-purple-600">Guess The Brainrot Game Features</h2>
+      <ul class="list-disc pl-6 space-y-2 text-gray-700">
+        <li><strong>Puzzle-solving mechanics:</strong> Solve challenging puzzles in <strong>Guess The Brainrot</strong>.</li>
+        <li><strong>Character recognition:</strong> Identify Brainrot characters based on clues in <strong>Guess The Brainrot</strong>.</li>
+        <li><strong>Progressive difficulty:</strong> Face increasingly challenging puzzles in <strong>Guess The Brainrot</strong>.</li>
+        <li><strong>Educational content:</strong> Learn about Brainrot characters while playing <strong>Guess The Brainrot</strong>.</li>
+        <li><strong>Strategic thinking:</strong> Use logic and deduction to solve puzzles in <strong>Guess The Brainrot</strong>.</li>
+        <li><strong>Cross-platform compatibility:</strong> Play <strong>Guess The Brainrot</strong> on desktop, mobile, and tablet devices.</li>
+      </ul>
+
+      <h2 class="text-2xl font-bold mt-8 mb-3 text-green-600">How to Play Guess The Brainrot</h2>
+      <p class="text-gray-700 mb-4">Getting started with <strong>Guess The Brainrot</strong> requires understanding the basic puzzle mechanics and observation skills. Begin by examining the clues and visual elements carefully. In <strong>Guess The Brainrot</strong>, you'll need to balance between speed and accuracy, as both are essential for success. The key to victory is developing your observation skills and knowledge of Brainrot characters.</p>
+
+      <p class="text-gray-700 mb-6">The strategic depth of <strong>Guess The Brainrot</strong> comes from the need to analyze multiple clues and make connections between different elements. You'll need to decide when to make educated guesses and when to wait for more information, when to focus on specific details and when to look at the bigger picture. The game's puzzle nature means that strategies must be adapted to each puzzle, requiring constant adaptation and improvement of your observation approach.</p>
+
+      <h2 class="text-2xl font-bold mb-3 text-blue-600">Advanced Strategies for Guess The Brainrot</h2>
+      <ul class="list-disc pl-6 space-y-2 text-gray-700">
+        <li><strong>Observation mastery:</strong> Master the art of observation in <strong>Guess The Brainrot</strong>.</li>
+        <li><strong>Clue analysis:</strong> Analyze clues systematically in <strong>Guess The Brainrot</strong>.</li>
+        <li><strong>Character knowledge:</strong> Develop deep knowledge of Brainrot characters in <strong>Guess The Brainrot</strong>.</li>
+        <li><strong>Pattern recognition:</strong> Recognize patterns and connections in <strong>Guess The Brainrot</strong>.</li>
+        <li><strong>Deduction skills:</strong> Use logical deduction to solve puzzles in <strong>Guess The Brainrot</strong>.</li>
+      </ul>
+
+      <h2 class="text-2xl font-bold mt-8 mb-3 text-indigo-600">Why Play Guess The Brainrot</h2>
+      <p class="text-gray-700"><strong>Guess The Brainrot</strong> offers a unique and engaging puzzle experience that combines observation skills with Brainrot character knowledge. The game's focus on puzzles and character recognition creates an exciting environment where knowledge and deduction go hand in hand. Whether you enjoy puzzle games, character recognition, or simply want to test your knowledge of the Brainrot universe, <strong>Guess The Brainrot</strong> provides a compelling and educational gaming experience.</p>
+
+      <h2 class="text-2xl font-bold mt-8 mb-3 text-pink-600">Guess The Brainrot FAQ</h2>
+      <dl class="text-gray-700">
+        <dt>Is Guess The Brainrot free to play?</dt>
+        <dd>Yes. <strong>Guess The Brainrot</strong> is completely free to play in your browser with no download required.</dd>
+        <dt>Do I need to install anything to play Guess The Brainrot?</dt>
+        <dd>No. <strong>Guess The Brainrot</strong> runs entirely in your web browser, making it accessible on any device.</dd>
+        <dt>Can I play Guess The Brainrot on mobile devices?</dt>
+        <dd>Yes. <strong>Guess The Brainrot</strong> is optimized for mobile devices with touch controls for easy interaction.</dd>
+        <dt>What makes Guess The Brainrot different from other puzzle games?</dt>
+        <dd><strong>Guess The Brainrot</strong> features Brainrot character knowledge and unique puzzle mechanics that set it apart from other puzzle games.</dd>
+        <dt>Is Guess The Brainrot multiplayer?</dt>
+        <dd><strong>Guess The Brainrot</strong> focuses on single-player puzzle gameplay with educational elements.</dd>
+        <dt>Will my progress be saved in Guess The Brainrot?</dt>
+        <dd>Yes. Your progress in <strong>Guess The Brainrot</strong> is automatically saved, so you can continue from where you left off.</dd>
+      </dl>
+
+      <!-- Related Games Section -->
+      <div class="mt-8 pt-6 border-t border-gray-200">
+        <h3 class="text-xl font-bold mb-4 text-gray-800">More Games Like Guess The Brainrot</h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <a href="../Steal-Brainrot-Online/index.html" class="block rounded-lg overflow-hidden group">
+            <div class="relative w-full bg-gray-100" style="min-height:120px;">
+              <div class="absolute inset-0 bg-center bg-cover transition-transform duration-300 group-hover:scale-105" style="background-image:url('../../images/steal-a-brainrot-online.webp');"></div>
+              <div class="relative z-10 flex items-end justify-center h-full p-4">
+                <div class="bg-white/85 backdrop-blur-sm px-3 py-1 rounded text-sm font-medium text-gray-900 shadow-sm">Steal Brainrot Online</div>
+              </div>
+            </div>
+          </a>
+          <a href="../Steal-a-Brainrot-3D/index.html" class="block rounded-lg overflow-hidden group">
+            <div class="relative w-full bg-gray-100" style="min-height:120px;">
+              <div class="absolute inset-0 bg-center bg-cover transition-transform duration-300 group-hover:scale-105" style="background-image:url('../../images/Steal-a-Brainrot-3D.webp');"></div>
+              <div class="relative z-10 flex items-end justify-center h-full p-4">
+                <div class="bg-white/85 backdrop-blur-sm px-3 py-1 rounded text-sm font-medium text-gray-900 shadow-sm">Steal a Brainrot 3D</div>
+              </div>
+            </div>
+          </a>
+          <a href="../Plants-vs-Brainrots/index.html" class="block rounded-lg overflow-hidden group">
+            <div class="relative w-full bg-gray-100" style="min-height:120px;">
+              <div class="absolute inset-0 bg-center bg-cover transition-transform duration-300 group-hover:scale-105" style="background-image:url('../../images/plants-vs-brainrots.webp');"></div>
+              <div class="relative z-10 flex items-end justify-center h-full p-4">
+                <div class="bg-white/85 backdrop-blur-sm px-3 py-1 rounded text-sm font-medium text-gray-900 shadow-sm">Plants vs Brainrots</div>
+              </div>
+            </div>
+          </a>
+          <a href="../99-Nights-In-The-Forest/index.html" class="block rounded-lg overflow-hidden group">
+            <div class="relative w-full bg-gray-100" style="min-height:120px;">
+              <div class="absolute inset-0 bg-center bg-cover transition-transform duration-300 group-hover:scale-105" style="background-image:url('../../images/99-Nights-in-the-Forest.webp');"></div>
+              <div class="relative z-10 flex items-end justify-center h-full p-4">
+                <div class="bg-white/85 backdrop-blur-sm px-3 py-1 rounded text-sm font-medium text-gray-900 shadow-sm">99 Nights In The Forest</div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </article>
+  </main>
+</body>
+<script>
+  (function(){
+    // Fullscreen for the embedded iframe/container
+    var fsBtn = document.getElementById('gtbFullscreenBtn');
+    var player = document.getElementById('gtbPlayer');
+    if(fsBtn && player){
+      fsBtn.addEventListener('click', function(){
+        var el = player;
+        var req = el.requestFullscreen || el.webkitRequestFullscreen || el.mozRequestFullScreen || el.msRequestFullscreen;
+        if (req) {
+          req.call(el);
+        }
+      });
+    }
+
+    // Simple rating like homepage
+    var likeBtn = document.getElementById('gtbLikeBtn');
+    var dislikeBtn = document.getElementById('gtbDislikeBtn');
+    var likeEl = document.getElementById('gtbLikeCount');
+    var dislikeEl = document.getElementById('gtbDislikeCount');
+    var scoreEl = document.getElementById('gtbScore');
+
+    function updateScore(){
+      var l = parseInt(likeEl.textContent)||0;
+      var d = parseInt(dislikeEl.textContent)||0;
+      var t = l + d;
+      var s = t>0 ? (l/t)*5 : 4.6;
+      scoreEl.textContent = s.toFixed(1);
+    }
+    if(likeBtn){
+      likeBtn.addEventListener('click', function(){
+        likeEl.textContent = (parseInt(likeEl.textContent)||0) + 1;
+        updateScore();
+      });
+    }
+    if(dislikeBtn){
+      dislikeBtn.addEventListener('click', function(){
+        dislikeEl.textContent = (parseInt(dislikeEl.textContent)||0) + 1;
+        updateScore();
+      });
+    }
+  })();
+</script>
+</html>

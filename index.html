@@ -59,9 +59,6 @@
       gtag('config', 'G-TJ0WVHX547');
     </script>
     
-    <!-- Monetag Ad Code -->
-    
-    
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1893638941587898"
      crossorigin="anonymous"></script>
@@ -89,6 +86,23 @@
             to { 
                 box-shadow: 0 0 60px rgba(255, 0, 128, 0.6), 0 0 100px rgba(0, 255, 255, 0.4), 0 0 140px rgba(255, 69, 0, 0.3);
                 filter: hue-rotate(10deg);
+            }
+        }
+        
+        /* 游戏卡片样式 */
+        .game-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .main-game-area {
+            min-height: 500px;
+        }
+        @media (max-width: 1024px) {
+            .right-sidebar {
+                display: none;
             }
         }
         
@@ -394,26 +408,17 @@
                     <div class="w-12 h-12 meme-bounce">
                         <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
                             <defs>
-                                <linearGradient id="headerMaskGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" stop-color="#2e2e3e"/>
-                                    <stop offset="50%" stop-color="#44406c"/>
-                                    <stop offset="100%" stop-color="#764ba2"/>
-                                </linearGradient>
-                                <linearGradient id="headerEyeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" stop-color="#fff700"/>
-                                    <stop offset="100%" stop-color="#ffc300"/>
+                                <linearGradient id="modernGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#0d1117"/>
+                                    <stop offset="100%" stop-color="#161b22"/>
                                 </linearGradient>
                             </defs>
-                            <rect width="32" height="32" rx="4" fill="url(#headerMaskGradient)"/>
-                            <path d="M6 10C6 7.5 8 6 10.5 6H21.5C24 6 26 7.5 26 10V18C26 20.5 24 22 21.5 22H18.5L16 25L13.5 22H10.5C8 22 6 20.5 6 18V10Z" fill="#0c0c1a" fill-opacity="0.95"/>
-                            <path d="M6 16C6 12 10 8 16 8C22 8 26 12 26 16V18C26 20 24 22 21 22H11C8 22 6 20 6 18V16Z" fill="#1a1a2e" fill-opacity="0.8"/>
-                            <ellipse cx="12" cy="14" rx="2.5" ry="4" fill="url(#headerEyeGradient)"/>
-                            <ellipse cx="20" cy="14" rx="2.5" ry="4" fill="url(#headerEyeGradient)"/>
-                            <ellipse cx="12" cy="14.5" rx="1" ry="1.5" fill="#1a1a2e"/>
-                            <ellipse cx="20" cy="14.5" rx="1" ry="1.5" fill="#1a1a2e"/>
-                            <path d="M14 18C14.5 19 15.5 19.5 16 19.5C16.5 19.5 17.5 19 18 18" stroke="#fff700" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-                            <circle cx="26" cy="6" r="2.5" fill="#ffd700" opacity="0.9"/>
-                            <path d="M24.5 4.5L27.5 7.5M27.5 4.5L24.5 7.5" stroke="#2e2e3e" stroke-width="0.8"/>
+                            <rect width="32" height="32" rx="6" fill="url(#modernGradient)"/>
+                            <circle cx="16" cy="16" r="10" fill="#58a6ff" opacity="0.2"/>
+                            <circle cx="16" cy="16" r="6" fill="#58a6ff" opacity="0.4"/>
+                            <circle cx="16" cy="16" r="3" fill="#58a6ff"/>
+                            <path d="M8 8L24 24M24 8L8 24" stroke="#f85149" stroke-width="1.5" stroke-linecap="round"/>
+                            <circle cx="16" cy="6" r="1" fill="#7c3aed"/>
                         </svg>
                     </div>
                     <div>
@@ -491,69 +496,341 @@
         <!-- Game Section -->
         <section id="game" class="mb-16">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-8">Play Steal Brainrot</h2>
-            <div class="max-w-4xl mx-auto">
-                <div class="bg-gray-900 rounded-lg shadow-xl overflow-hidden border border-gray-700">
-                    <div class="game-container relative" id="gameContainer" style="background: url('steal-brainrot-online.avif') center/cover no-repeat;">
-                        <!-- Game Launch Screen -->
-                        <div id="gameLauncher" class="flex items-center justify-center h-full text-center text-white p-8">
-                            <div>
-                                <div class="text-6xl mb-4">🎮</div>
-                                <h3 class="text-2xl font-bold mb-4">Ready to Play?</h3>
-                                <p class="mb-6 opacity-90">Click below to start playing Steal Brainrot!</p>
-                                <button onclick="loadGameInFrame()" class="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-4 px-8 rounded-full text-lg transition-colors shadow-lg">
-                                    🚀 Launch Game
-                                </button>
+            
+            <!-- 主布局：游戏区域 + 右侧游戏卡片 + 下方游戏卡片 -->
+            <div class="max-w-7xl mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+                    <!-- 主游戏区域 (占3列) -->
+                    <div class="lg:col-span-3">
+                        <div class="bg-gray-900 rounded-lg shadow-xl overflow-hidden border border-gray-700 main-game-area">
+                            <div class="game-container relative" id="gameContainer" style="background: url('steal-brainrot-online.avif') center/cover no-repeat;">
+                                <!-- Game Launch Screen -->
+                                <div id="gameLauncher" class="flex items-center justify-center h-full text-center text-white p-8">
+                                    <div>
+                                        <div class="text-6xl mb-4">🎮</div>
+                                        <h3 class="text-2xl font-bold mb-4">Ready to Play?</h3>
+                                        <p class="mb-6 opacity-90">Click below to start playing Steal Brainrot!</p>
+                                        <button onclick="loadGameInIframe()" class="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-4 px-8 rounded-full text-lg transition-colors shadow-lg">
+                                            🚀 Launch Game
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <!-- Game Frame (Hidden Initially) -->
+                                <div id="gameFrame" class="hidden w-full h-full relative">
+                                    <div class="absolute top-2 right-2 z-10 flex gap-2">
+                                        <button onclick="toggleFullscreen()" class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg" id="fullscreenBtn">
+                                            ⛶ Fullscreen
+                                        </button>
+                                        <button onclick="closeGame()" class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">
+                                            ✕ Close
+                                        </button>
+                                    </div>
+                                    <iframe id="gameIframe" 
+                                            class="w-full h-full border-0" 
+                                            src="" 
+                                            allowfullscreen
+                                            allow="gamepad; clipboard-read; clipboard-write"
+                                            sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-pointer-lock allow-top-navigation"
+                                            loading="lazy">
+                                    </iframe>
+                                </div>
+                                
+                                <!-- Loading Screen -->
+                                <div id="gameLoading" class="hidden flex items-center justify-center h-full text-white" style="background: linear-gradient(rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.9)), url('steal-brainrot-online.avif') center/cover no-repeat;">
+                                    <div class="text-center" style="background: rgba(0, 0, 0, 0.3); padding: 2rem; border-radius: 20px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1);">
+                                        <div class="animate-spin text-6xl mb-4">⚡</div>
+                                        <h3 class="text-xl font-bold mb-2" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Loading Game...</h3>
+                                        <p class="opacity-90" style="text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">Please wait while we prepare your gaming experience</p>
+                                        <div class="mt-4">
+                                            <div class="w-48 bg-purple-600 bg-opacity-30 rounded-full h-2 mx-auto backdrop-filter backdrop-blur-sm">
+                                                <div class="bg-yellow-400 h-2 rounded-full animate-pulse" style="width: 60%; box-shadow: 0 0 10px rgba(255, 212, 0, 0.5);"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        
-                        <!-- Game Frame (Hidden Initially) -->
-                        <div id="gameFrame" class="hidden w-full h-full relative">
-                            <div class="absolute top-2 right-2 z-10">
-                                <button onclick="closeGame()" class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">
-                                    ✕ Close
-                                </button>
-                            </div>
-                            <iframe id="gameIframe" 
-                                    class="w-full h-full border-0" 
-                                    src="" 
-                                    allowfullscreen
-                                    allow="gamepad; clipboard-read; clipboard-write"
-                                    sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-pointer-lock allow-top-navigation"
-                                    loading="lazy">
-                            </iframe>
-                        </div>
-                        
-                        <!-- Loading Screen -->
-                        <div id="gameLoading" class="hidden flex items-center justify-center h-full text-white" style="background: linear-gradient(rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.9)), url('steal-brainrot-online.avif') center/cover no-repeat;">
-                            <div class="text-center" style="background: rgba(0, 0, 0, 0.3); padding: 2rem; border-radius: 20px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1);">
-                                <div class="animate-spin text-6xl mb-4">⚡</div>
-                                <h3 class="text-xl font-bold mb-2" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Loading Game...</h3>
-                                <p class="opacity-90" style="text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">Please wait while we prepare your gaming experience</p>
-                                <div class="mt-4">
-                                    <div class="w-48 bg-purple-600 bg-opacity-30 rounded-full h-2 mx-auto backdrop-filter backdrop-blur-sm">
-                                        <div class="bg-yellow-400 h-2 rounded-full animate-pulse" style="width: 60%; box-shadow: 0 0 10px rgba(255, 212, 0, 0.5);"></div>
+                            <div class="p-6 bg-gray-800 text-white">
+                                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                                    <div>
+                                        <div class="text-2xl font-bold text-purple-600">HTML5</div>
+                                        <div class="text-sm text-gray-300">Technology</div>
+                                    </div>
+                                    <div>
+                                        <div class="text-2xl font-bold text-green-600">Browser</div>
+                                        <div class="text-sm text-gray-300">Platform</div>
+                                    </div>
+                                    <div>
+                                        <div class="text-2xl font-bold text-blue-600">Multiplayer</div>
+                                        <div class="text-sm text-gray-300">Mode</div>
+                                    </div>
+                                    <div>
+                                        <div class="text-2xl font-bold text-red-600">Free</div>
+                                        <div class="text-sm text-gray-300">Price</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        
+                        <!-- 下方游戏卡片 - 紧贴游戏框，每排6个 -->
+                        <div class="bg-gray-800 rounded-lg shadow-md p-6 mt-6 border border-gray-700">
+                            <div class="grid grid-cols-6 gap-3">
+                                <!-- 第1行 - 6个游戏 -->
+                                <a href="games/2v2-io/index.html" class="game-card bg-gray-50 rounded-lg p-1 aspect-square hover:transform hover:scale-105 transition-all duration-300">
+                                    <div class="w-full h-full rounded mb-1 overflow-hidden">
+                                        <img src="images/2v2-io.webp" alt="2v2.io" class="w-full h-full object-cover">
+                                    </div>
+                                    <h4 class="font-bold text-xs truncate">2v2.io</h4>
+                                </a>
+                                <a href="games/67-Clicker/index.html" class="game-card bg-gray-50 rounded-lg p-1 aspect-square hover:transform hover:scale-105 transition-all duration-300">
+                                    <div class="w-full h-full rounded mb-1 overflow-hidden">
+                                        <img src="images/67-clicker.webp" alt="67 Clicker" class="w-full h-full object-cover">
+                                    </div>
+                                    <h4 class="font-bold text-xs truncate">67 Clicker</h4>
+                                </a>
+                                <a href="games/99-Nights-In-The-Forest/index.html" class="game-card bg-gray-50 rounded-lg p-1 aspect-square hover:transform hover:scale-105 transition-all duration-300">
+                                    <div class="w-full h-full rounded mb-1 overflow-hidden">
+                                        <img src="images/99-Nights-in-the-Forest.webp" alt="99 Nights In The Forest" class="w-full h-full object-cover">
+                                    </div>
+                                    <h4 class="font-bold text-xs truncate">99 Nights In The Forest</h4>
+                                </a>
+                                <a href="games/Brainrot-Evolution/index.html" class="game-card bg-gray-50 rounded-lg p-1 aspect-square hover:transform hover:scale-105 transition-all duration-300">
+                                    <div class="w-full h-full rounded mb-1 overflow-hidden">
+                                        <img src="images/brainrot-evolution-h200x200.webp" alt="Brainrot Evolution" class="w-full h-full object-cover">
+                                    </div>
+                                    <h4 class="font-bold text-xs truncate">Brainrot Evolution</h4>
+                                </a>
+                                <a href="games/Growden-io/index.html" class="game-card bg-gray-50 rounded-lg p-1 aspect-square hover:transform hover:scale-105 transition-all duration-300">
+                                    <div class="w-full h-full rounded mb-1 overflow-hidden">
+                                        <img src="images/growden-io.webp" alt="Growden.io" class="w-full h-full object-cover">
+                                    </div>
+                                    <h4 class="font-bold text-xs truncate">Growden.io</h4>
+                                </a>
+                                <a href="games/Guess-The-Brainrot/index.html" class="game-card bg-gray-50 rounded-lg p-1 aspect-square hover:transform hover:scale-105 transition-all duration-300">
+                                    <div class="w-full h-full rounded mb-1 overflow-hidden">
+                                        <img src="images/guess-the-brainrot-h200x200.webp" alt="Guess The Brainrot" class="w-full h-full object-cover">
+                                    </div>
+                                    <h4 class="font-bold text-xs truncate">Guess The Brainrot</h4>
+                                </a>
+                                
+                                <!-- 第2行 - 6个游戏 -->
+                                <a href="games/Italian-Brainrot-Baby-Clicker/index.html" class="game-card bg-gray-50 rounded-lg p-1 aspect-square hover:transform hover:scale-105 transition-all duration-300">
+                                    <div class="w-full h-full rounded mb-1 overflow-hidden">
+                                        <img src="images/Italian-Brainrot-Baby-Clicker-h200x200.webp" alt="Italian Brainrot Baby Clicker" class="w-full h-full object-cover">
+                                    </div>
+                                    <h4 class="font-bold text-xs truncate">Italian Brainrot Baby Clicker</h4>
+                                </a>
+                                <a href="games/Las-Sis-Steal-a-Brainrot/index.html" class="game-card bg-gray-50 rounded-lg p-1 aspect-square hover:transform hover:scale-105 transition-all duration-300">
+                                    <div class="w-full h-full rounded mb-1 overflow-hidden">
+                                        <img src="images/Las-Sis-steal-brainrot-h200x200.webp" alt="Las Sis (Steal a Brainrot)" class="w-full h-full object-cover">
+                                    </div>
+                                    <h4 class="font-bold text-xs truncate">Las Sis (Steal a Brainrot)</h4>
+                                </a>
+                                <a href="games/Merge-Fellas/index.html" class="game-card bg-gray-50 rounded-lg p-1 aspect-square hover:transform hover:scale-105 transition-all duration-300">
+                                    <div class="w-full h-full rounded mb-1 overflow-hidden">
+                                        <img src="images/merge-fellas-h200x200.webp" alt="Merge Fellas" class="w-full h-full object-cover">
+                                    </div>
+                                    <h4 class="font-bold text-xs truncate">Merge Fellas</h4>
+                                </a>
+                                <a href="games/Merge-Rot/index.html" class="game-card bg-gray-50 rounded-lg p-1 aspect-square hover:transform hover:scale-105 transition-all duration-300">
+                                    <div class="w-full h-full rounded mb-1 overflow-hidden">
+                                        <img src="images/merge-rot.webp" alt="Merge Rot" class="w-full h-full object-cover">
+                                    </div>
+                                    <h4 class="font-bold text-xs truncate">Merge Rot</h4>
+                                </a>
+                                <a href="games/Merge-Rot-Tung-Tung-Brain/index.html" class="game-card bg-gray-50 rounded-lg p-1 aspect-square hover:transform hover:scale-105 transition-all duration-300">
+                                    <div class="w-full h-full rounded mb-1 overflow-hidden">
+                                        <img src="images/Merge-Rot-Tung-Tung-Brain-h200x200.webp" alt="Merge Rot: Tung Tung Brain" class="w-full h-full object-cover">
+                                    </div>
+                                    <h4 class="font-bold text-xs truncate">Merge Rot: Tung Tung Brain</h4>
+                                </a>
+                                <a href="games/Mr-Flips/index.html" class="game-card bg-gray-50 rounded-lg p-1 aspect-square hover:transform hover:scale-105 transition-all duration-300">
+                                    <div class="w-full h-full rounded mb-1 overflow-hidden">
+                                        <img src="images/mr-flips.webp" alt="Mr Flips" class="w-full h-full object-cover">
+                                    </div>
+                                    <h4 class="font-bold text-xs truncate">Mr Flips</h4>
+                                </a>
+                                
+                                <!-- 第3行 - 6个游戏 -->
+                                <a href="games/My-Singing-Brainrot/index.html" class="game-card bg-gray-50 rounded-lg p-1 aspect-square hover:transform hover:scale-105 transition-all duration-300">
+                                    <div class="w-full h-full rounded mb-1 overflow-hidden">
+                                        <img src="images/my-singing-brainrot-h200x200.webp" alt="My Singing Brainrot" class="w-full h-full object-cover">
+                                    </div>
+                                    <h4 class="font-bold text-xs truncate">My Singing Brainrot</h4>
+                                </a>
+                                <a href="games/Obby-My-Singing-Brainrot/index.html" class="game-card bg-gray-50 rounded-lg p-1 aspect-square hover:transform hover:scale-105 transition-all duration-300">
+                                    <div class="w-full h-full rounded mb-1 overflow-hidden">
+                                        <img src="images/obby-my-singing-brainrot-h200x200.webp" alt="Obby: My Singing Brainrot" class="w-full h-full object-cover">
+                                    </div>
+                                    <h4 class="font-bold text-xs truncate">Obby: My Singing Brainrot</h4>
+                                </a>
+                                <a href="games/Plants-vs-Brainrots/index.html" class="game-card bg-gray-50 rounded-lg p-1 aspect-square hover:transform hover:scale-105 transition-all duration-300">
+                                    <div class="w-full h-full rounded mb-1 overflow-hidden">
+                                        <img src="images/plants-vs-brainrots.webp" alt="Plants vs Brainrots" class="w-full h-full object-cover">
+                                    </div>
+                                    <h4 class="font-bold text-xs truncate">Plants vs Brainrots</h4>
+                                </a>
+                                <a href="games/Ragdoll-Playground/index.html" class="game-card bg-gray-50 rounded-lg p-1 aspect-square hover:transform hover:scale-105 transition-all duration-300">
+                                    <div class="w-full h-full rounded mb-1 overflow-hidden">
+                                        <img src="images/ragdoll-playground-h200x200.webp" alt="Ragdoll Playground" class="w-full h-full object-cover">
+                                    </div>
+                                    <h4 class="font-bold text-xs truncate">Ragdoll Playground</h4>
+                                </a>
+                                <a href="games/Rainbow-Obby/index.html" class="game-card bg-gray-50 rounded-lg p-1 aspect-square hover:transform hover:scale-105 transition-all duration-300">
+                                    <div class="w-full h-full rounded mb-1 overflow-hidden">
+                                        <img src="images/rainbow-obby-h200x200.webp" alt="Rainbow Obby" class="w-full h-full object-cover">
+                                    </div>
+                                    <h4 class="font-bold text-xs truncate">Rainbow Obby</h4>
+                                </a>
+                                <a href="games/Slope-Rider/index.html" class="game-card bg-gray-50 rounded-lg p-1 aspect-square hover:transform hover:scale-105 transition-all duration-300">
+                                    <div class="w-full h-full rounded mb-1 overflow-hidden">
+                                        <img src="images/slope-rider-h200x200.webp" alt="Slope Rider" class="w-full h-full object-cover">
+                                    </div>
+                                    <h4 class="font-bold text-xs truncate">Slope Rider</h4>
+                                </a>
+                                
+                                <!-- 第4行 - 6个游戏 -->
+                                <a href="games/Steal-A-Brainrot-2/index.html" class="game-card bg-gray-50 rounded-lg p-1 aspect-square hover:transform hover:scale-105 transition-all duration-300">
+                                    <div class="w-full h-full rounded mb-1 overflow-hidden">
+                                        <img src="images/steal-a-brainrot-2-1-h200x200.webp" alt="Steal A Brainrot 2" class="w-full h-full object-cover">
+                                    </div>
+                                    <h4 class="font-bold text-xs truncate">Steal A Brainrot 2</h4>
+                                </a>
+                                <a href="games/Steal-a-Brainrot-3D/index.html" class="game-card bg-gray-50 rounded-lg p-1 aspect-square hover:transform hover:scale-105 transition-all duration-300">
+                                    <div class="w-full h-full rounded mb-1 overflow-hidden">
+                                        <img src="images/Steal-a-Brainrot-3D.webp" alt="Steal a Brainrot 3D" class="w-full h-full object-cover">
+                                    </div>
+                                    <h4 class="font-bold text-xs truncate">Steal a Brainrot 3D</h4>
+                                </a>
+                                <a href="games/Steal-A-Brainrot-Unblocked/index.html" class="game-card bg-gray-50 rounded-lg p-1 aspect-square hover:transform hover:scale-105 transition-all duration-300">
+                                    <div class="w-full h-full rounded mb-1 overflow-hidden">
+                                        <img src="images/steal-a-brainrot-unblocked-h200x200.webp" alt="Steal A Brainrot Unblocked" class="w-full h-full object-cover">
+                                    </div>
+                                    <h4 class="font-bold text-xs truncate">Steal A Brainrot Unblocked</h4>
+                                </a>
+                                <a href="games/Steal-Brainrot-New-Animals/index.html" class="game-card bg-gray-50 rounded-lg p-1 aspect-square hover:transform hover:scale-105 transition-all duration-300">
+                                    <div class="w-full h-full rounded mb-1 overflow-hidden">
+                                        <img src="images/Steal-Brainrot-New-Animals.webp" alt="Steal Brainrot: New Animals" class="w-full h-full object-cover">
+                                    </div>
+                                    <h4 class="font-bold text-xs truncate">Steal Brainrot: New Animals</h4>
+                                </a>
+                                <a href="games/Steal-The-Italian-Brainrot/index.html" class="game-card bg-gray-50 rounded-lg p-1 aspect-square hover:transform hover:scale-105 transition-all duration-300">
+                                    <div class="w-full h-full rounded mb-1 overflow-hidden">
+                                        <img src="images/Steal-The-Italian-Brainrot-h200x200.webp" alt="Steal The Italian Brainrot" class="w-full h-full object-cover">
+                                    </div>
+                                    <h4 class="font-bold text-xs truncate">Steal The Italian Brainrot</h4>
+                                </a>
+                                <a href="games/Steal-The-Brainrot-Fish/index.html" class="game-card bg-gray-50 rounded-lg p-1 aspect-square hover:transform hover:scale-105 transition-all duration-300">
+                                    <div class="w-full h-full rounded mb-1 overflow-hidden">
+                                        <img src="images/Steal-The-Brainrot-Fish-h200x200.webp" alt="Steal The Brainrot Fish" class="w-full h-full object-cover">
+                                    </div>
+                                    <h4 class="font-bold text-xs truncate">Steal The Brainrot Fish</h4>
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="p-6 bg-gray-800 text-white">
-                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-                            <div>
-                                <div class="text-2xl font-bold text-purple-600">HTML5</div>
-                                <div class="text-sm text-gray-300">Technology</div>
-                            </div>
-                            <div>
-                                <div class="text-2xl font-bold text-green-600">Browser</div>
-                                <div class="text-sm text-gray-300">Platform</div>
-                            </div>
-                            <div>
-                                <div class="text-2xl font-bold text-blue-600">Multiplayer</div>
-                                <div class="text-sm text-gray-300">Mode</div>
-                            </div>
-                            <div>
-                                <div class="text-2xl font-bold text-red-600">Free</div>
-                                <div class="text-sm text-gray-300">Price</div>
+                    
+                    <!-- 右侧游戏卡片区域 (占1列) -->
+                    <div class="lg:col-span-1 right-sidebar">
+                        <div class="bg-gray-800 rounded-lg shadow-md p-4 border border-gray-700">
+                            <div class="grid grid-cols-2 gap-2">
+                                <!-- 右侧游戏卡片 - 2列布局，与下方卡片大小相同 -->
+                                <a href="games/Steal-Brainrot-Online/index.html" class="game-card bg-gray-50 rounded-lg p-1 aspect-square hover:transform hover:scale-105 transition-all duration-300">
+                                    <div class="w-full h-full rounded mb-1 overflow-hidden">
+                                        <img src="images/steal-a-brainrot-online.webp" alt="Steal Brainrot Online" class="w-full h-full object-cover">
+                                    </div>
+                                    <h4 class="font-bold text-xs truncate">Steal Brainrot Online</h4>
+                                </a>
+                                <a href="games/Steal-N-Catch-The-Brainrot/index.html" class="game-card bg-gray-50 rounded-lg p-1 aspect-square hover:transform hover:scale-105 transition-all duration-300">
+                                    <div class="w-full h-full rounded mb-1 overflow-hidden">
+                                        <img src="images/Steal-N-Catch-The-Brainrot-h200x200.webp" alt="Steal N Catch The Brainrot" class="w-full h-full object-cover">
+                                    </div>
+                                    <h4 class="font-bold text-xs truncate">Steal N Catch The Brainrot</h4>
+                                </a>
+                                <a href="games/Steal-The-Italian-Brainrot/index.html" class="game-card bg-gray-50 rounded-lg p-1 aspect-square hover:transform hover:scale-105 transition-all duration-300">
+                                    <div class="w-full h-full rounded mb-1 overflow-hidden">
+                                        <img src="images/Steal-The-Italian-Brainrot-h200x200.webp" alt="Steal The Italian Brainrot" class="w-full h-full object-cover">
+                                    </div>
+                                    <h4 class="font-bold text-xs truncate">Steal The Italian Brainrot</h4>
+                                </a>
+                                <a href="games/Stumble-Guys/index.html" class="game-card bg-gray-50 rounded-lg p-1 aspect-square hover:transform hover:scale-105 transition-all duration-300">
+                                    <div class="w-full h-full rounded mb-1 overflow-hidden">
+                                        <img src="images/stumble-guys-1-h200x200.webp" alt="Stumble Guys" class="w-full h-full object-cover">
+                                    </div>
+                                    <h4 class="font-bold text-xs truncate">Stumble Guys</h4>
+                                </a>
+                                <a href="games/Brainrot-Hole/index.html" class="game-card bg-gray-50 rounded-lg p-1 aspect-square hover:transform hover:scale-105 transition-all duration-300">
+                                    <div class="w-full h-full rounded mb-1 overflow-hidden">
+                                        <img src="images/Brainrot-Hole-h200x200.webp" alt="Brainrot Hole" class="w-full h-full object-cover">
+                                    </div>
+                                    <h4 class="font-bold text-xs truncate">Brainrot Hole</h4>
+                                </a>
+                                <a href="games/Steal-The-Brainrot-Fish/index.html" class="game-card bg-gray-50 rounded-lg p-1 aspect-square hover:transform hover:scale-105 transition-all duration-300">
+                                    <div class="w-full h-full rounded mb-1 overflow-hidden">
+                                        <img src="images/Steal-The-Brainrot-Fish-h200x200.webp" alt="Steal The Brainrot Fish" class="w-full h-full object-cover">
+                                    </div>
+                                    <h4 class="font-bold text-xs truncate">Steal The Brainrot Fish</h4>
+                                </a>
+                                <a href="games/2v2-io/index.html" class="game-card bg-gray-50 rounded-lg p-1 aspect-square hover:transform hover:scale-105 transition-all duration-300">
+                                    <div class="w-full h-full rounded mb-1 overflow-hidden">
+                                        <img src="images/2v2-io.webp" alt="2v2.io" class="w-full h-full object-cover">
+                                    </div>
+                                    <h4 class="font-bold text-xs truncate">2v2.io</h4>
+                                </a>
+                                <a href="games/67-Clicker/index.html" class="game-card bg-gray-50 rounded-lg p-1 aspect-square hover:transform hover:scale-105 transition-all duration-300">
+                                    <div class="w-full h-full rounded mb-1 overflow-hidden">
+                                        <img src="images/67-clicker.webp" alt="67 Clicker" class="w-full h-full object-cover">
+                                    </div>
+                                    <h4 class="font-bold text-xs truncate">67 Clicker</h4>
+                                </a>
+                                <a href="games/99-Nights-In-The-Forest/index.html" class="game-card bg-gray-50 rounded-lg p-1 aspect-square hover:transform hover:scale-105 transition-all duration-300">
+                                    <div class="w-full h-full rounded mb-1 overflow-hidden">
+                                        <img src="images/99-Nights-in-the-Forest.webp" alt="99 Nights In The Forest" class="w-full h-full object-cover">
+                                    </div>
+                                    <h4 class="font-bold text-xs truncate">99 Nights In The Forest</h4>
+                                </a>
+                                <a href="games/Brainrot-Evolution/index.html" class="game-card bg-gray-50 rounded-lg p-1 aspect-square hover:transform hover:scale-105 transition-all duration-300">
+                                    <div class="w-full h-full rounded mb-1 overflow-hidden">
+                                        <img src="images/brainrot-evolution-h200x200.webp" alt="Brainrot Evolution" class="w-full h-full object-cover">
+                                    </div>
+                                    <h4 class="font-bold text-xs truncate">Brainrot Evolution</h4>
+                                </a>
+                                <a href="games/Steal-Brainrot-Online/index.html" class="game-card bg-gray-50 rounded-lg p-1 aspect-square hover:transform hover:scale-105 transition-all duration-300">
+                                    <div class="w-full h-full rounded mb-1 overflow-hidden">
+                                        <img src="images/steal-brainrot-io-h200x200.webp" alt="Steal Brainrot Io" class="w-full h-full object-cover">
+                                    </div>
+                                    <h4 class="font-bold text-xs truncate">Steal Brainrot Io</h4>
+                                </a>
+                                <a href="games/Las-Sis-Steal-a-Brainrot/index.html" class="game-card bg-gray-50 rounded-lg p-1 aspect-square hover:transform hover:scale-105 transition-all duration-300">
+                                    <div class="w-full h-full rounded mb-1 overflow-hidden">
+                                        <img src="images/Las-Sis-steal-brainrot-h200x200.webp" alt="Los Bros in Steal a Brainrot" class="w-full h-full object-cover">
+                                    </div>
+                                    <h4 class="font-bold text-xs truncate">Los Bros in Steal a Brainrot</h4>
+                                </a>
+                                <a href="games/Growden-io/index.html" class="game-card bg-gray-50 rounded-lg p-1 aspect-square hover:transform hover:scale-105 transition-all duration-300">
+                                    <div class="w-full h-full rounded mb-1 overflow-hidden">
+                                        <img src="images/growden-io.webp" alt="Growden.io" class="w-full h-full object-cover">
+                                    </div>
+                                    <h4 class="font-bold text-xs truncate">Growden.io</h4>
+                                </a>
+                                <a href="games/Merge-Rot-Tung-Tung-Brain/index.html" class="game-card bg-gray-50 rounded-lg p-1 aspect-square hover:transform hover:scale-105 transition-all duration-300">
+                                    <div class="w-full h-full rounded mb-1 overflow-hidden">
+                                        <img src="images/Merge-Rot-Tung-Tung-Brain-h200x200.webp" alt="Merge Rot: Tung Tung Brain" class="w-full h-full object-cover">
+                                    </div>
+                                    <h4 class="font-bold text-xs truncate">Merge Rot: Tung Tung Brain</h4>
+                                </a>
+                                <a href="games/Rainbow-Obby/index.html" class="game-card bg-gray-50 rounded-lg p-1 aspect-square hover:transform hover:scale-105 transition-all duration-300">
+                                    <div class="w-full h-full rounded mb-1 overflow-hidden">
+                                        <img src="images/rainbow-obby-h200x200.webp" alt="Rainbow Obby" class="w-full h-full object-cover">
+                                    </div>
+                                    <h4 class="font-bold text-xs truncate">Rainbow Obby</h4>
+                                </a>
+                                <a href="games/Steal-a-Brainrot-3D/index.html" class="game-card bg-gray-50 rounded-lg p-1 aspect-square hover:transform hover:scale-105 transition-all duration-300">
+                                    <div class="w-full h-full rounded mb-1 overflow-hidden">
+                                        <img src="images/Steal-a-Brainrot-3D.webp" alt="Steal a Brainrot 3D" class="w-full h-full object-cover">
+                                    </div>
+                                    <h4 class="font-bold text-xs truncate">Steal a Brainrot 3D</h4>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -987,8 +1264,8 @@
                 });
             }
             
-            // 直接跳转到游戏，绕过iframe限制
-            window.location.href = 'https://www.gamenora.com/embed/steal-a-brainrot';
+            // 直接在iframe中加载游戏
+            loadGameInIframe();
         }
         
         // 直接启动游戏（回退方案）
@@ -1002,8 +1279,31 @@
                 });
             }
             
-            // 在当前窗口打开游戏
-            window.location.href = 'https://www.gamenora.com/embed/steal-a-brainrot';
+            // 直接在iframe中加载游戏
+            loadGameInIframe();
+        }
+        
+        // 在iframe中加载游戏
+        function loadGameInIframe() {
+            const gameLoading = document.getElementById('gameLoading');
+            const gameFrame = document.getElementById('gameFrame');
+            const gameIframe = document.getElementById('gameIframe');
+            
+            // 隐藏加载界面，显示游戏框架
+            gameLoading.classList.add('hidden');
+            gameFrame.classList.remove('hidden');
+            
+            // 设置iframe源
+            gameIframe.src = 'https://st.8games.net/7/8g/igra-ukradi-brejnrot-onlajn/';
+            
+            // 追踪游戏加载
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'game_loaded_iframe', {
+                    'event_category': 'Game',
+                    'event_label': 'Iframe Load Success',
+                    'transport_type': 'beacon'
+                });
+            }
         }
         
         // 显示游戏启动成功界面
@@ -1091,6 +1391,73 @@
             }
         }
         
+        // Fullscreen Toggle Function
+        function toggleFullscreen() {
+            const gameContainer = document.getElementById('gameContainer');
+            const fullscreenBtn = document.getElementById('fullscreenBtn');
+            
+            if (!document.fullscreenElement) {
+                // Enter fullscreen
+                if (gameContainer.requestFullscreen) {
+                    gameContainer.requestFullscreen();
+                } else if (gameContainer.webkitRequestFullscreen) {
+                    gameContainer.webkitRequestFullscreen();
+                } else if (gameContainer.msRequestFullscreen) {
+                    gameContainer.msRequestFullscreen();
+                }
+                
+                // Update button text
+                fullscreenBtn.innerHTML = '⛶ Exit Fullscreen';
+                
+                // Track fullscreen enter
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'game_fullscreen_enter', {
+                        'event_category': 'Game',
+                        'event_label': 'Fullscreen Entered',
+                        'transport_type': 'beacon'
+                    });
+                }
+            } else {
+                // Exit fullscreen
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) {
+                    document.msExitFullscreen();
+                }
+                
+                // Update button text
+                fullscreenBtn.innerHTML = '⛶ Fullscreen';
+                
+                // Track fullscreen exit
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'game_fullscreen_exit', {
+                        'event_category': 'Game',
+                        'event_label': 'Fullscreen Exited',
+                        'transport_type': 'beacon'
+                    });
+                }
+            }
+        }
+        
+        // Listen for fullscreen changes
+        document.addEventListener('fullscreenchange', updateFullscreenButton);
+        document.addEventListener('webkitfullscreenchange', updateFullscreenButton);
+        document.addEventListener('mozfullscreenchange', updateFullscreenButton);
+        document.addEventListener('MSFullscreenChange', updateFullscreenButton);
+        
+        function updateFullscreenButton() {
+            const fullscreenBtn = document.getElementById('fullscreenBtn');
+            if (fullscreenBtn) {
+                if (document.fullscreenElement) {
+                    fullscreenBtn.innerHTML = '⛶ Exit Fullscreen';
+                } else {
+                    fullscreenBtn.innerHTML = '⛶ Fullscreen';
+                }
+            }
+        }
+        
         // Fallback Game Window Function (for when iframe fails)
         function openGameWindow() {
             const gameUrl = 'https://www.gameflare.com/online-game/roblox-steal-a-brainrot/';
@@ -1154,11 +1521,13 @@
         
         // 语言选择器初始化
         function initLanguageSelector() {
-            if (typeof languageManager === 'undefined') {
+            if (typeof languageManager === 'undefined' || !languageManager) {
                 console.log('Language manager not loaded yet, retrying...');
                 setTimeout(initLanguageSelector, 100);
                 return;
             }
+            
+            console.log('Initializing language selector with manager:', languageManager);
             
             const languageButton = document.getElementById('languageButton');
             const languageDropdown = document.getElementById('languageDropdown');
@@ -1197,34 +1566,59 @@
                         console.log('Language selected:', lang.code);
                         console.log('Current language manager:', languageManager);
                         
-                        if (languageManager && typeof languageManager.switchLanguage === 'function') {
-                            languageManager.switchLanguage(lang.code);
-                        } else {
-                            console.error('Language manager not available or switchLanguage method missing');
-                            // 备用跳转方案 - 支持本地开发环境
-                            const currentHost = window.location.hostname;
-                            const isLocalDev = currentHost === 'localhost' || currentHost === '127.0.0.1' || currentHost.includes('localhost');
+                        // 直接使用跳转方案，确保语言切换正常工作
+                        const currentHost = window.location.hostname;
+                        const currentPath = window.location.pathname;
+                        const currentSearch = window.location.search;
+                        const currentHash = window.location.hash;
+                        
+                        // 检查是否为本地开发环境
+                        const isLocalDev = currentHost === 'localhost' || currentHost === '127.0.0.1' || currentHost.includes('localhost');
+                        
+                        let targetUrl;
+                        
+                        if (isLocalDev) {
+                            // 本地开发环境：使用路径前缀
+                            // 统一规范路径：去掉可能存在的语言前缀和本地文件路径
+                            let normalizedPath = currentPath.replace(/^\/(en|zh-cn|es|ar|ko|ja|de|fr)(?=\/|$)/i, '');
                             
-                            let targetUrl;
-                            if (isLocalDev) {
-                                // 本地开发环境
-                                if (lang.code === 'en') {
-                                    targetUrl = `http://${currentHost}:8000/`;
-                                } else {
-                                    targetUrl = `http://${currentHost}:8000/${lang.code}/`;
-                                }
-                            } else {
-                                // 生产环境
-                                if (lang.code === 'en') {
-                                    targetUrl = 'https://stealbrainrot.co/';
-                                } else {
-                                    targetUrl = `https://${lang.code}.stealbrainrot.co/`;
-                                }
+                            // 处理本地文件路径（如 G:/web stand/stealbrainrot.co/）
+                            if (normalizedPath.includes(':')) {
+                                normalizedPath = '/';
                             }
                             
-                            console.log('Fallback redirect to:', targetUrl);
-                            window.location.href = targetUrl;
+                            const safePath = normalizedPath === '' ? '/' : normalizedPath;
+                            
+                            // 获取当前端口
+                            const currentPort = window.location.port;
+                            const portSuffix = currentPort ? `:${currentPort}` : '';
+                            
+                            if (lang.code === 'en') {
+                                targetUrl = `http://${currentHost}${portSuffix}${safePath}${currentSearch}${currentHash}`;
+                            } else {
+                                targetUrl = `http://${currentHost}${portSuffix}/${lang.code}${safePath}${currentSearch}${currentHash}`;
+                            }
+                        } else {
+                            // 生产环境：使用子域名
+                            // 统一规范路径：去掉可能存在的语言前缀和本地文件路径
+                            let normalizedPath = currentPath.replace(/^\/(en|zh-cn|es|ar|ko|ja|de|fr)(?=\/|$)/i, '');
+                            
+                            // 处理本地文件路径（如 G:/web stand/stealbrainrot.co/）
+                            if (normalizedPath.includes(':')) {
+                                normalizedPath = '/';
+                            }
+                            
+                            const safePath = normalizedPath === '' ? '/' : normalizedPath;
+                            
+                            if (lang.code === 'en') {
+                                targetUrl = `https://stealbrainrot.co${safePath}${currentSearch}${currentHash}`;
+                            } else {
+                                targetUrl = `https://${lang.code}.stealbrainrot.co${safePath}${currentSearch}${currentHash}`;
+                            }
                         }
+                        
+                        // 直接跳转
+                        window.location.href = targetUrl;
                         
                         updateCurrentLanguageDisplay();
                         dropdown.classList.add('hidden');
@@ -1313,4 +1707,3 @@
     </script>
 </body>
 </html>
-
