@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Growden.io — Play Growden.io Free Online Multiplayer Game</title>
+  <meta name="description" content="Play Growden.io free! Experience the ultimate .io multiplayer game where you grow, evolve, and compete with players worldwide. No download required!">
+  <link rel="canonical" href="/games/Growden-io/">
+  <meta property="og:title" content="Growden.io — Play Free .io Multiplayer Game">
+  <meta property="og:description" content="Grow, evolve, and compete in Growden.io, the ultimate .io multiplayer game where strategy meets real-time action.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="/games/Growden-io/">
+  <meta name="robots" content="index,follow">
+  
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TJ0WVHX547"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TJ0WVHX547');
+  </script>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* 暗黑神秘风格 - 与主页保持一致 */
+    .gradient-bg {
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+        box-shadow: 0 0 30px rgba(26, 26, 46, 0.8), 0 0 60px rgba(15, 52, 96, 0.4);
+        animation: dark-glow 3s ease-in-out infinite alternate;
+    }
+    
+    @keyframes dark-glow {
+        from { 
+            box-shadow: 0 0 40px rgba(255, 0, 128, 0.4), 0 0 80px rgba(0, 255, 255, 0.3), 0 0 120px rgba(255, 69, 0, 0.2);
+            filter: hue-rotate(0deg);
+        }
+        to { 
+            box-shadow: 0 0 60px rgba(255, 0, 128, 0.6), 0 0 100px rgba(0, 255, 255, 0.4), 0 0 140px rgba(255, 69, 0, 0.3);
+            filter: hue-rotate(10deg);
+        }
+    }
+    
+    /* 游戏容器样式 */
+    .game-container {
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+        border: 2px solid rgba(255, 0, 128, 0.3);
+        box-shadow: 0 0 20px rgba(255, 0, 128, 0.2), 0 0 40px rgba(0, 255, 255, 0.1);
+    }
+    
+    /* 内容区域样式 */
+    .content-area {
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+        border: 1px solid rgba(255, 0, 128, 0.2);
+        box-shadow: 0 0 15px rgba(255, 0, 128, 0.1);
+    }
+    
+    /* 按钮样式 */
+    .game-btn {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
+        transition: all 0.3s ease;
+    }
+    
+    .game-btn:hover {
+        box-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+        transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-white min-h-screen">
+  <!-- Site Header (matches homepage) -->
+  <header class="gradient-bg text-white shadow-lg">
+    <div class="w-full px-6 py-4">
+      <div class="container mx-auto flex items-center justify-between">
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10">
+            <img src="../../favicon.svg" alt="Steal Brainrot Online" class="w-full h-full">
+          </div>
+          <h2 class="text-2xl font-bold">Steal Brainrot Online</h2>
+        </div>
+        <a href="../../index.html" class="bg-white/20 hover:bg-white/30 text-white font-semibold px-3 py-2 rounded-lg border border-white/30">← Back to Home</a>
+      </div>
+    </div>
+  </header>
+  <main class="pb-6 pt-0">
+    <div class="w-full">
+      <div class="bg-gradient-to-r from-purple-600 to-pink-500 text-white px-6 py-6">
+        <div class="container mx-auto">
+          <h1 class="text-2xl font-bold">Growden.io</h1>
+        </div>
+      </div>
+    </div>
+
+    <section aria-label="Game Player" class="max-w-4xl mx-auto mt-6">
+      <div id="growdenPlayer" class="bg-white rounded-lg shadow-xl overflow-hidden">
+        <div class="aspect-video">
+          <iframe id="growdenIframe" class="w-full h-full border-0" src="https://steal-brainrot.io/growdenio.embed" title="Growden.io" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+      <div class="bg-white rounded-lg shadow-md border border-gray-100 mt-3 p-4 flex items-center justify-between">
+        <button id="growdenFullscreenBtn" class="px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold">⛶ Fullscreen</button>
+        <div class="flex items-center gap-4 text-sm text-gray-700">
+          <button id="growdenLikeBtn" class="flex items-center gap-1 hover:text-green-600"><span>👍</span><span id="growdenLikeCount">1020</span></button>
+          <button id="growdenDislikeBtn" class="flex items-center gap-1 hover:text-red-600"><span>👎</span><span id="growdenDislikeCount">58</span></button>
+          <span>Score: <span id="growdenScore" class="font-bold text-purple-600">4.7</span></span>
+        </div>
+      </div>
+    </section>
+
+    <article class="max-w-4xl mx-auto mt-8 bg-white rounded-lg shadow-lg p-8">
+      <h2 class="text-2xl md:text-3xl font-bold text-center mb-6">What Is Growden.io?</h2>
+      <p class="mb-4 text-gray-700"><strong>Growden.io</strong> is a fast-paced multiplayer .io game that combines growth mechanics with competitive gameplay in a dynamic online environment. In <strong>Growden.io</strong>, players start as small entities and must grow, evolve, and compete with other players to become the largest and most powerful on the server. What makes <strong>Growden.io</strong> unique is its emphasis on strategic growth, resource management, and real-time multiplayer competition, creating an engaging experience that rewards both skill and strategy.</p>
+
+      <p class="mb-8 text-gray-700">The game's core mechanics revolve around collecting resources, avoiding larger players, and strategically positioning yourself to grow while maintaining your safety. <strong>Growden.io</strong> features a dynamic ecosystem where players must balance between aggressive growth and defensive play, making every decision crucial for survival and success. The game's real-time multiplayer nature ensures that no two sessions are the same, as players from around the world compete for dominance.</p>
+
+      <h2 class="text-2xl font-bold mb-4 text-purple-600">Growden.io Game Features</h2>
+      <ul class="list-disc pl-6 space-y-2 text-gray-700">
+        <li><strong>Real-time multiplayer:</strong> Compete with players worldwide in <strong>Growden.io</strong> for dominance and survival.</li>
+        <li><strong>Growth mechanics:</strong> Start small and grow larger by collecting resources in <strong>Growden.io</strong>.</li>
+        <li><strong>Strategic gameplay:</strong> Balance between aggressive growth and defensive play in <strong>Growden.io</strong>.</li>
+        <li><strong>Resource management:</strong> Collect and manage resources efficiently in <strong>Growden.io</strong>.</li>
+        <li><strong>Dynamic ecosystem:</strong> Navigate a constantly changing environment in <strong>Growden.io</strong>.</li>
+        <li><strong>Cross-platform compatibility:</strong> Play <strong>Growden.io</strong> on desktop, mobile, and tablet devices.</li>
+      </ul>
+
+      <h2 class="text-2xl font-bold mt-8 mb-3 text-green-600">How to Play Growden.io</h2>
+      <p class="text-gray-700 mb-4">Getting started with <strong>Growden.io</strong> is simple: begin by moving around the map to collect resources and grow your character. In <strong>Growden.io</strong>, you'll need to balance between collecting resources to grow larger and avoiding other players who might be bigger and more dangerous than you. The key to success is understanding the game's mechanics and developing strategies that work for your playstyle.</p>
+
+      <p class="text-gray-700 mb-6">The strategic depth of <strong>Growden.io</strong> comes from the need to constantly adapt to the changing environment and other players' actions. You'll need to decide when to be aggressive and when to be defensive, when to focus on growth and when to focus on survival. The game's real-time nature means that every decision must be made quickly and decisively, making <strong>Growden.io</strong> an exciting and challenging experience.</p>
+
+      <h2 class="text-2xl font-bold mb-3 text-blue-600">Advanced Strategies for Growden.io</h2>
+      <ul class="list-disc pl-6 space-y-2 text-gray-700">
+        <li><strong>Resource prioritization:</strong> Focus on the most valuable resources in <strong>Growden.io</strong> for efficient growth.</li>
+        <li><strong>Positioning strategy:</strong> Use the map layout to your advantage in <strong>Growden.io</strong>.</li>
+        <li><strong>Risk management:</strong> Balance between growth and safety in <strong>Growden.io</strong>.</li>
+        <li><strong>Player interaction:</strong> Develop strategies for dealing with other players in <strong>Growden.io</strong>.</li>
+        <li><strong>Adaptation tactics:</strong> Modify your approach based on the current situation in <strong>Growden.io</strong>.</li>
+      </ul>
+
+      <h2 class="text-2xl font-bold mt-8 mb-3 text-indigo-600">Why Play Growden.io</h2>
+      <p class="text-gray-700"><strong>Growden.io</strong> offers a unique and engaging multiplayer experience that combines strategy, skill, and real-time action. The game's growth mechanics and competitive nature create an exciting environment where every decision matters and every session is different. Whether you enjoy strategic planning, competitive multiplayer gameplay, or simply want to test your skills against players from around the world, <strong>Growden.io</strong> provides a compelling and challenging gaming experience.</p>
+
+      <h2 class="text-2xl font-bold mt-8 mb-3 text-pink-600">Growden.io FAQ</h2>
+      <dl class="text-gray-700">
+        <dt>Is Growden.io free to play?</dt>
+        <dd>Yes. <strong>Growden.io</strong> is completely free to play in your browser with no download required.</dd>
+        <dt>Do I need to install anything to play Growden.io?</dt>
+        <dd>No. <strong>Growden.io</strong> runs entirely in your web browser, making it accessible on any device.</dd>
+        <dt>Can I play Growden.io on mobile devices?</dt>
+        <dd>Yes. <strong>Growden.io</strong> is optimized for mobile devices with touch controls for easy navigation.</dd>
+        <dt>What makes Growden.io different from other .io games?</dt>
+        <dd><strong>Growden.io</strong> features unique growth mechanics and strategic gameplay elements that set it apart from other .io games.</dd>
+        <dt>Is Growden.io multiplayer?</dt>
+        <dd>Yes. <strong>Growden.io</strong> is a real-time multiplayer game where you compete with players from around the world.</dd>
+        <dt>Will my progress be saved in Growden.io?</dt>
+        <dd>Your progress in <strong>Growden.io</strong> is session-based, but you can continue playing and improving your skills over time.</dd>
+      </dl>
+
+      <!-- Related Games Section -->
+      <div class="mt-8 pt-6 border-t border-gray-200">
+        <h3 class="text-xl font-bold mb-4 text-gray-800">More Games Like Growden.io</h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <a href="../Steal-Brainrot-Online/index.html" class="block rounded-lg overflow-hidden group">
+            <div class="relative w-full bg-gray-100" style="min-height:120px;">
+              <div class="absolute inset-0 bg-center bg-cover transition-transform duration-300 group-hover:scale-105" style="background-image:url('../../images/steal-a-brainrot-online.webp');"></div>
+              <div class="relative z-10 flex items-end justify-center h-full p-4">
+                <div class="bg-white/85 backdrop-blur-sm px-3 py-1 rounded text-sm font-medium text-gray-900 shadow-sm">Steal Brainrot Online</div>
+              </div>
+            </div>
+          </a>
+          <a href="../Steal-a-Brainrot-3D/index.html" class="block rounded-lg overflow-hidden group">
+            <div class="relative w-full bg-gray-100" style="min-height:120px;">
+              <div class="absolute inset-0 bg-center bg-cover transition-transform duration-300 group-hover:scale-105" style="background-image:url('../../images/Steal-a-Brainrot-3D.webp');"></div>
+              <div class="relative z-10 flex items-end justify-center h-full p-4">
+                <div class="bg-white/85 backdrop-blur-sm px-3 py-1 rounded text-sm font-medium text-gray-900 shadow-sm">Steal a Brainrot 3D</div>
+              </div>
+            </div>
+          </a>
+          <a href="../Plants-vs-Brainrots/index.html" class="block rounded-lg overflow-hidden group">
+            <div class="relative w-full bg-gray-100" style="min-height:120px;">
+              <div class="absolute inset-0 bg-center bg-cover transition-transform duration-300 group-hover:scale-105" style="background-image:url('../../images/plants-vs-brainrots.webp');"></div>
+              <div class="relative z-10 flex items-end justify-center h-full p-4">
+                <div class="bg-white/85 backdrop-blur-sm px-3 py-1 rounded text-sm font-medium text-gray-900 shadow-sm">Plants vs Brainrots</div>
+              </div>
+            </div>
+          </a>
+          <a href="../99-Nights-In-The-Forest/index.html" class="block rounded-lg overflow-hidden group">
+            <div class="relative w-full bg-gray-100" style="min-height:120px;">
+              <div class="absolute inset-0 bg-center bg-cover transition-transform duration-300 group-hover:scale-105" style="background-image:url('../../images/99-Nights-in-the-Forest.webp');"></div>
+              <div class="relative z-10 flex items-end justify-center h-full p-4">
+                <div class="bg-white/85 backdrop-blur-sm px-3 py-1 rounded text-sm font-medium text-gray-900 shadow-sm">99 Nights In The Forest</div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </article>
+  </main>
+</body>
+<script>
+  (function(){
+    // Fullscreen for the embedded iframe/container
+    var fsBtn = document.getElementById('growdenFullscreenBtn');
+    var player = document.getElementById('growdenPlayer');
+    if(fsBtn && player){
+      fsBtn.addEventListener('click', function(){
+        var el = player;
+        var req = el.requestFullscreen || el.webkitRequestFullscreen || el.mozRequestFullScreen || el.msRequestFullscreen;
+        if (req) {
+          req.call(el);
+        }
+      });
+    }
+
+    // Simple rating like homepage
+    var likeBtn = document.getElementById('growdenLikeBtn');
+    var dislikeBtn = document.getElementById('growdenDislikeBtn');
+    var likeEl = document.getElementById('growdenLikeCount');
+    var dislikeEl = document.getElementById('growdenDislikeCount');
+    var scoreEl = document.getElementById('growdenScore');
+
+    function updateScore(){
+      var l = parseInt(likeEl.textContent)||0;
+      var d = parseInt(dislikeEl.textContent)||0;
+      var t = l + d;
+      var s = t>0 ? (l/t)*5 : 4.7;
+      scoreEl.textContent = s.toFixed(1);
+    }
+    if(likeBtn){
+      likeBtn.addEventListener('click', function(){
+        likeEl.textContent = (parseInt(likeEl.textContent)||0) + 1;
+        updateScore();
+      });
+    }
+    if(dislikeBtn){
+      dislikeBtn.addEventListener('click', function(){
+        dislikeEl.textContent = (parseInt(dislikeEl.textContent)||0) + 1;
+        updateScore();
+      });
+    }
+  })();
+</script>
+</html>

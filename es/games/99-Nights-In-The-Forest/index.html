@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>99 Nights In The Forest — Play 99 Nights In The Forest Free Survival Game</title>
+  <meta name="description" content="Play 99 Nights In The Forest free! Survive 99 nights in a mysterious forest filled with challenges and dangers. No download required!">
+  <link rel="canonical" href="/games/99-Nights-In-The-Forest/">
+  <meta property="og:title" content="99 Nights In The Forest — Play Free Survival Game">
+  <meta property="og:description" content="Survive 99 nights in a mysterious forest filled with challenges, dangers, and survival mechanics in this engaging survival game.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="/games/99-Nights-In-The-Forest/">
+  <meta name="robots" content="index,follow">
+  
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TJ0WVHX547"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TJ0WVHX547');
+  </script>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* 暗黑神秘风格 - 与主页保持一致 */
+    .gradient-bg {
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+        box-shadow: 0 0 30px rgba(26, 26, 46, 0.8), 0 0 60px rgba(15, 52, 96, 0.4);
+        animation: dark-glow 3s ease-in-out infinite alternate;
+    }
+    
+    @keyframes dark-glow {
+        from { 
+            box-shadow: 0 0 40px rgba(255, 0, 128, 0.4), 0 0 80px rgba(0, 255, 255, 0.3), 0 0 120px rgba(255, 69, 0, 0.2);
+            filter: hue-rotate(0deg);
+        }
+        to { 
+            box-shadow: 0 0 60px rgba(255, 0, 128, 0.6), 0 0 100px rgba(0, 255, 255, 0.4), 0 0 140px rgba(255, 69, 0, 0.3);
+            filter: hue-rotate(10deg);
+        }
+    }
+    
+    /* 游戏容器样式 */
+    .game-container {
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+        border: 2px solid rgba(255, 0, 128, 0.3);
+        box-shadow: 0 0 20px rgba(255, 0, 128, 0.2), 0 0 40px rgba(0, 255, 255, 0.1);
+    }
+    
+    /* 内容区域样式 */
+    .content-area {
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+        border: 1px solid rgba(255, 0, 128, 0.2);
+        box-shadow: 0 0 15px rgba(255, 0, 128, 0.1);
+    }
+    
+    /* 按钮样式 */
+    .game-btn {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
+        transition: all 0.3s ease;
+    }
+    
+    .game-btn:hover {
+        box-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+        transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-white min-h-screen">
+  <!-- Site Header (matches homepage) -->
+  <header class="gradient-bg text-white shadow-lg">
+    <div class="w-full px-6 py-4">
+      <div class="container mx-auto flex items-center justify-between">
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10">
+            <img src="../../favicon.svg" alt="Steal Brainrot Online" class="w-full h-full">
+          </div>
+          <h2 class="text-2xl font-bold">Steal Brainrot Online</h2>
+        </div>
+        <a href="../../index.html" class="bg-white/20 hover:bg-white/30 text-white font-semibold px-3 py-2 rounded-lg border border-white/30">← Back to Home</a>
+      </div>
+    </div>
+  </header>
+  <main class="pb-6 pt-0">
+    <div class="w-full">
+      <div class="bg-gradient-to-r from-purple-600 to-pink-500 text-white px-6 py-6">
+        <div class="container mx-auto">
+          <h1 class="text-2xl font-bold">99 Nights In The Forest</h1>
+        </div>
+      </div>
+    </div>
+
+    <section aria-label="Game Player" class="max-w-4xl mx-auto mt-6">
+      <div id="99nitfPlayer" class="bg-white rounded-lg shadow-xl overflow-hidden">
+        <div class="aspect-video">
+          <iframe id="99nitfIframe" class="w-full h-full border-0" src="https://steal-brainrot.io/99-nights-in-the-forest.embed" title="99 Nights In The Forest" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+      <div class="bg-white rounded-lg shadow-md border border-gray-100 mt-3 p-4 flex items-center justify-between">
+        <button id="99nitfFullscreenBtn" class="px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold">⛶ Fullscreen</button>
+        <div class="flex items-center gap-4 text-sm text-gray-700">
+          <button id="99nitfLikeBtn" class="flex items-center gap-1 hover:text-green-600"><span>👍</span><span id="99nitfLikeCount">890</span></button>
+          <button id="99nitfDislikeBtn" class="flex items-center gap-1 hover:text-red-600"><span>👎</span><span id="99nitfDislikeCount">34</span></button>
+          <span>Score: <span id="99nitfScore" class="font-bold text-purple-600">4.5</span></span>
+        </div>
+      </div>
+    </section>
+
+    <article class="max-w-4xl mx-auto mt-8 bg-white rounded-lg shadow-lg p-8">
+      <h2 class="text-2xl md:text-3xl font-bold text-center mb-6">What Is 99 Nights In The Forest?</h2>
+      <p class="mb-4 text-gray-700"><strong>99 Nights In The Forest</strong> is an immersive survival game that challenges players to survive 99 consecutive nights in a mysterious and dangerous forest environment. In <strong>99 Nights In The Forest</strong>, players must manage resources, build shelter, gather food, and defend against various threats while navigating the challenges of each passing night. What makes <strong>99 Nights In The Forest</strong> unique is its progressive difficulty system, where each night becomes more challenging than the last, requiring players to adapt and evolve their survival strategies.</p>
+
+      <p class="mb-8 text-gray-700">The game's atmospheric design and survival mechanics create an engaging experience that tests players' resource management skills, strategic thinking, and ability to adapt to changing conditions. Each night in <strong>99 Nights In The Forest</strong> presents new challenges, from resource scarcity to dangerous creatures, making every decision crucial for survival. The game's progression system ensures that players must continuously improve their survival skills and strategies to make it through all 99 nights.</p>
+
+      <h2 class="text-2xl font-bold mb-4 text-purple-600">99 Nights In The Forest Game Features</h2>
+      <ul class="list-disc pl-6 space-y-2 text-gray-700">
+        <li><strong>Progressive survival challenge:</strong> Face increasing difficulty over 99 nights in <strong>99 Nights In The Forest</strong>.</li>
+        <li><strong>Resource management:</strong> Gather and manage essential resources for survival in <strong>99 Nights In The Forest</strong>.</li>
+        <li><strong>Shelter building:</strong> Construct and upgrade your base to withstand the challenges of <strong>99 Nights In The Forest</strong>.</li>
+        <li><strong>Dynamic weather:</strong> Adapt to changing weather conditions and environmental hazards in <strong>99 Nights In The Forest</strong>.</li>
+        <li><strong>Creature encounters:</strong> Face various dangerous creatures that become more challenging over time in <strong>99 Nights In The Forest</strong>.</li>
+        <li><strong>Skill progression:</strong> Develop survival skills and unlock new abilities in <strong>99 Nights In The Forest</strong>.</li>
+      </ul>
+
+      <h2 class="text-2xl font-bold mt-8 mb-3 text-green-600">How to Play 99 Nights In The Forest</h2>
+      <p class="text-gray-700 mb-4">Getting started with <strong>99 Nights In The Forest</strong> requires understanding the basic survival mechanics and resource management. Begin by gathering essential resources like wood, stone, and food during the day, then use these resources to build shelter and prepare for the night. In <strong>99 Nights In The Forest</strong>, each day is crucial for preparation, as the nights become progressively more challenging.</p>
+
+      <p class="text-gray-700 mb-6">The key to success in <strong>99 Nights In The Forest</strong> is balancing immediate survival needs with long-term strategic planning. You'll need to prioritize which resources to gather, which structures to build, and how to defend against the increasing threats. The game's progression system means that strategies that work in the early nights may not be effective later, requiring constant adaptation and improvement of your survival approach.</p>
+
+      <h2 class="text-2xl font-bold mb-3 text-blue-600">Advanced Strategies for 99 Nights In The Forest</h2>
+      <ul class="list-disc pl-6 space-y-2 text-gray-700">
+        <li><strong>Resource prioritization:</strong> Focus on the most essential resources for each night in <strong>99 Nights In The Forest</strong>.</li>
+        <li><strong>Shelter optimization:</strong> Build and upgrade your shelter strategically in <strong>99 Nights In The Forest</strong>.</li>
+        <li><strong>Threat assessment:</strong> Analyze and prepare for the specific challenges of each night in <strong>99 Nights In The Forest</strong>.</li>
+        <li><strong>Skill development:</strong> Invest in survival skills that provide long-term benefits in <strong>99 Nights In The Forest</strong>.</li>
+        <li><strong>Adaptation strategies:</strong> Modify your approach based on the changing conditions in <strong>99 Nights In The Forest</strong>.</li>
+      </ul>
+
+      <h2 class="text-2xl font-bold mt-8 mb-3 text-indigo-600">Why Play 99 Nights In The Forest</h2>
+      <p class="text-gray-700"><strong>99 Nights In The Forest</strong> offers a challenging and immersive survival experience that tests players' strategic thinking and resource management skills. The game's progressive difficulty system ensures that players must continuously adapt and improve their survival strategies, creating a rewarding and engaging gameplay experience. Whether you enjoy survival games, strategic planning, or simply want to test your ability to overcome increasingly difficult challenges, <strong>99 Nights In The Forest</strong> provides a unique and compelling gaming experience.</p>
+
+      <h2 class="text-2xl font-bold mt-8 mb-3 text-pink-600">99 Nights In The Forest FAQ</h2>
+      <dl class="text-gray-700">
+        <dt>Is 99 Nights In The Forest free to play?</dt>
+        <dd>Yes. <strong>99 Nights In The Forest</strong> is completely free to play in your browser with no download required.</dd>
+        <dt>Do I need to install anything to play 99 Nights In The Forest?</dt>
+        <dd>No. <strong>99 Nights In The Forest</strong> runs entirely in your web browser, making it accessible on any device.</dd>
+        <dt>Can I save my progress in 99 Nights In The Forest?</dt>
+        <dd>Yes. Your progress in <strong>99 Nights In The Forest</strong> is automatically saved, so you can continue from where you left off.</dd>
+        <dt>What makes 99 Nights In The Forest different from other survival games?</dt>
+        <dd><strong>99 Nights In The Forest</strong> features a unique 99-night progression system with increasing difficulty and specific survival challenges.</dd>
+        <dt>Is 99 Nights In The Forest multiplayer?</dt>
+        <dd><strong>99 Nights In The Forest</strong> focuses on single-player survival gameplay with a challenging progression system.</dd>
+        <dt>What happens if I fail to survive a night in 99 Nights In The Forest?</dt>
+        <dd>If you fail to survive a night in <strong>99 Nights In The Forest</strong>, you'll need to restart from the beginning, but you'll retain any unlocked skills and knowledge.</dd>
+      </dl>
+
+      <!-- Related Games Section -->
+      <div class="mt-8 pt-6 border-t border-gray-200">
+        <h3 class="text-xl font-bold mb-4 text-gray-800">More Games Like 99 Nights In The Forest</h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <a href="../Steal-Brainrot-Online/index.html" class="block rounded-lg overflow-hidden group">
+            <div class="relative w-full bg-gray-100" style="min-height:120px;">
+              <div class="absolute inset-0 bg-center bg-cover transition-transform duration-300 group-hover:scale-105" style="background-image:url('../../images/steal-a-brainrot-online.webp');"></div>
+              <div class="relative z-10 flex items-end justify-center h-full p-4">
+                <div class="bg-white/85 backdrop-blur-sm px-3 py-1 rounded text-sm font-medium text-gray-900 shadow-sm">Steal Brainrot Online</div>
+              </div>
+            </div>
+          </a>
+          <a href="../Steal-a-Brainrot-3D/index.html" class="block rounded-lg overflow-hidden group">
+            <div class="relative w-full bg-gray-100" style="min-height:120px;">
+              <div class="absolute inset-0 bg-center bg-cover transition-transform duration-300 group-hover:scale-105" style="background-image:url('../../images/Steal-a-Brainrot-3D.webp');"></div>
+              <div class="relative z-10 flex items-end justify-center h-full p-4">
+                <div class="bg-white/85 backdrop-blur-sm px-3 py-1 rounded text-sm font-medium text-gray-900 shadow-sm">Steal a Brainrot 3D</div>
+              </div>
+            </div>
+          </a>
+          <a href="../Plants-vs-Brainrots/index.html" class="block rounded-lg overflow-hidden group">
+            <div class="relative w-full bg-gray-100" style="min-height:120px;">
+              <div class="absolute inset-0 bg-center bg-cover transition-transform duration-300 group-hover:scale-105" style="background-image:url('../../images/plants-vs-brainrots.webp');"></div>
+              <div class="relative z-10 flex items-end justify-center h-full p-4">
+                <div class="bg-white/85 backdrop-blur-sm px-3 py-1 rounded text-sm font-medium text-gray-900 shadow-sm">Plants vs Brainrots</div>
+              </div>
+            </div>
+          </a>
+          <a href="../Growden-io/index.html" class="block rounded-lg overflow-hidden group">
+            <div class="relative w-full bg-gray-100" style="min-height:120px;">
+              <div class="absolute inset-0 bg-center bg-cover transition-transform duration-300 group-hover:scale-105" style="background-image:url('../../images/growden-io.webp');"></div>
+              <div class="relative z-10 flex items-end justify-center h-full p-4">
+                <div class="bg-white/85 backdrop-blur-sm px-3 py-1 rounded text-sm font-medium text-gray-900 shadow-sm">Growden.io</div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </article>
+  </main>
+</body>
+<script>
+  (function(){
+    // Fullscreen for the embedded iframe/container
+    var fsBtn = document.getElementById('99nitfFullscreenBtn');
+    var player = document.getElementById('99nitfPlayer');
+    if(fsBtn && player){
+      fsBtn.addEventListener('click', function(){
+        var el = player;
+        var req = el.requestFullscreen || el.webkitRequestFullscreen || el.mozRequestFullScreen || el.msRequestFullscreen;
+        if (req) {
+          req.call(el);
+        }
+      });
+    }
+
+    // Simple rating like homepage
+    var likeBtn = document.getElementById('99nitfLikeBtn');
+    var dislikeBtn = document.getElementById('99nitfDislikeBtn');
+    var likeEl = document.getElementById('99nitfLikeCount');
+    var dislikeEl = document.getElementById('99nitfDislikeCount');
+    var scoreEl = document.getElementById('99nitfScore');
+
+    function updateScore(){
+      var l = parseInt(likeEl.textContent)||0;
+      var d = parseInt(dislikeEl.textContent)||0;
+      var t = l + d;
+      var s = t>0 ? (l/t)*5 : 4.5;
+      scoreEl.textContent = s.toFixed(1);
+    }
+    if(likeBtn){
+      likeBtn.addEventListener('click', function(){
+        likeEl.textContent = (parseInt(likeEl.textContent)||0) + 1;
+        updateScore();
+      });
+    }
+    if(dislikeBtn){
+      dislikeBtn.addEventListener('click', function(){
+        dislikeEl.textContent = (parseInt(dislikeEl.textContent)||0) + 1;
+        updateScore();
+      });
+    }
+  })();
+</script>
+</html>
