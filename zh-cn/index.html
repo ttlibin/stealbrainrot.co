@@ -991,6 +991,39 @@
         
         
         // 页面加载完成后初始化
+        function changeColorScheme(scheme) {
+            document.body.classList.remove('scheme-neon', 'scheme-warm', 'scheme-dark', 'scheme-fire', 'scheme-mint');
+            document.body.classList.add('scheme-' + scheme);
+            localStorage.setItem('color-scheme', scheme);
+            showColorSchemeNotification(scheme);
+        }
+        
+        function showColorSchemeNotification(scheme) {
+            const schemeNames = {
+                'neon': '霓虹赛博朋克',
+                'warm': '温暖风格',
+                'dark': '暗黑风格',
+                'fire': '火焰风格',
+                'mint': '薄荷风格'
+            };
+            
+            const notification = document.createElement('div');
+            notification.className = 'fixed top-4 left-4 bg-white text-gray-800 px-4 py-2 rounded-lg shadow-lg z-50 transition-all duration-300';
+            notification.innerHTML = `🎨 已切换到: ${schemeNames[scheme]}`;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.opacity = '0';
+                notification.style.transform = 'translateX(-100%)';
+                setTimeout(() => document.body.removeChild(notification), 300);
+            }, 3000);
+        }
+        
+        function initColorScheme() {
+            const savedScheme = localStorage.getItem('color-scheme') || 'dark';
+            changeColorScheme(savedScheme);
+        }
+        
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', initColorScheme);
         } else {
@@ -1279,7 +1312,7 @@
                             }
                         }
                         
-                        console.log('Redirecting to:', targetUrl);
+                        // 直接跳转
                         window.location.href = targetUrl;
                     });
                     
@@ -1290,6 +1323,7 @@
             // 桌面端语言选择器
             if (languageButton && languageDropdown) {
                 languageButton.addEventListener('click', (e) => {
+                    e.preventDefault();
                     e.stopPropagation();
                     const isHidden = languageDropdown.classList.contains('hidden');
                     
