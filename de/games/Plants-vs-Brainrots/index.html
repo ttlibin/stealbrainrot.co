@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Plants vs Brainrots — Play Plants vs Brainrots Free Tower Defense Game</title>
+  <meta name="description" content="Play Plants vs Brainrots free! Defend your garden from invading Brainrot memes in this exciting tower defense game. No download required!">
+  <link rel="canonical" href="/games/Plants-vs-Brainrots/">
+  <meta property="og:title" content="Plants vs Brainrots — Play Free Tower Defense Game">
+  <meta property="og:description" content="Defend your garden from invading Brainrot memes in Plants vs Brainrots, the ultimate tower defense game with a humorous twist.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="/games/Plants-vs-Brainrots/">
+  <meta name="robots" content="index,follow">
+  
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TJ0WVHX547"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TJ0WVHX547');
+  </script>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* 暗黑神秘风格 - 与主页保持一致 */
+    .gradient-bg {
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+        box-shadow: 0 0 30px rgba(26, 26, 46, 0.8), 0 0 60px rgba(15, 52, 96, 0.4);
+        animation: dark-glow 3s ease-in-out infinite alternate;
+    }
+    
+    @keyframes dark-glow {
+        from { 
+            box-shadow: 0 0 40px rgba(255, 0, 128, 0.4), 0 0 80px rgba(0, 255, 255, 0.3), 0 0 120px rgba(255, 69, 0, 0.2);
+            filter: hue-rotate(0deg);
+        }
+        to { 
+            box-shadow: 0 0 60px rgba(255, 0, 128, 0.6), 0 0 100px rgba(0, 255, 255, 0.4), 0 0 140px rgba(255, 69, 0, 0.3);
+            filter: hue-rotate(10deg);
+        }
+    }
+    
+    /* 游戏容器样式 */
+    .game-container {
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+        border: 2px solid rgba(255, 0, 128, 0.3);
+        box-shadow: 0 0 20px rgba(255, 0, 128, 0.2), 0 0 40px rgba(0, 255, 255, 0.1);
+    }
+    
+    /* 内容区域样式 */
+    .content-area {
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+        border: 1px solid rgba(255, 0, 128, 0.2);
+        box-shadow: 0 0 15px rgba(255, 0, 128, 0.1);
+    }
+    
+    /* 按钮样式 */
+    .game-btn {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
+        transition: all 0.3s ease;
+    }
+    
+    .game-btn:hover {
+        box-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+        transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-white min-h-screen">
+  <!-- Site Header (matches homepage) -->
+  <header class="gradient-bg text-white shadow-lg">
+    <div class="w-full px-6 py-4">
+      <div class="container mx-auto flex items-center justify-between">
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10">
+            <img src="../../favicon.svg" alt="Steal Brainrot Online" class="w-full h-full">
+          </div>
+          <h2 class="text-2xl font-bold">Steal Brainrot Online</h2>
+        </div>
+        <a href="../../index.html" class="bg-white/20 hover:bg-white/30 text-white font-semibold px-3 py-2 rounded-lg border border-white/30">← Back to Home</a>
+      </div>
+    </div>
+  </header>
+  <main class="pb-6 pt-0">
+    <div class="w-full">
+      <div class="bg-gradient-to-r from-purple-600 to-pink-500 text-white px-6 py-6">
+        <div class="container mx-auto">
+          <h1 class="text-2xl font-bold">Plants vs Brainrots</h1>
+        </div>
+      </div>
+    </div>
+
+    <section aria-label="Game Player" class="max-w-4xl mx-auto mt-6">
+      <div id="pvbPlayer" class="bg-white rounded-lg shadow-xl overflow-hidden">
+        <div class="aspect-video">
+          <iframe id="pvbIframe" class="w-full h-full border-0" src="https://steal-brainrot.io/plants-vs-brainrots.embed" title="Plants vs Brainrots" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+      <div class="bg-white rounded-lg shadow-md border border-gray-100 mt-3 p-4 flex items-center justify-between">
+        <button id="pvbFullscreenBtn" class="px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold">⛶ Fullscreen</button>
+        <div class="flex items-center gap-4 text-sm text-gray-700">
+          <button id="pvbLikeBtn" class="flex items-center gap-1 hover:text-green-600"><span>👍</span><span id="pvbLikeCount">1150</span></button>
+          <button id="pvbDislikeBtn" class="flex items-center gap-1 hover:text-red-600"><span>👎</span><span id="pvbDislikeCount">67</span></button>
+          <span>Score: <span id="pvbScore" class="font-bold text-purple-600">4.8</span></span>
+        </div>
+      </div>
+    </section>
+
+    <article class="max-w-4xl mx-auto mt-8 bg-white rounded-lg shadow-lg p-8">
+      <h2 class="text-2xl md:text-3xl font-bold text-center mb-6">What Is Plants vs Brainrots?</h2>
+      <p class="mb-4 text-gray-700"><strong>Plants vs Brainrots</strong> is a humorous tower defense game that combines the classic Plants vs Zombies gameplay with the chaotic world of Brainrot memes. In <strong>Plants vs Brainrots</strong>, players must defend their garden from invading Brainrot characters using various defensive plants and strategic positioning. What makes <strong>Plants vs Brainrots</strong> unique is its creative twist on the tower defense genre, featuring iconic Brainrot memes as enemies and humorous plant defenders.</p>
+
+      <p class="mb-8 text-gray-700">The game mechanics in <strong>Plants vs Brainrots</strong> follow the traditional tower defense formula but with a fresh, meme-inspired twist. Players must strategically place different types of plants to counter various Brainrot enemies, each with unique abilities and attack patterns. The humor and creativity in <strong>Plants vs Brainrots</strong> make it an entertaining experience for both casual and hardcore tower defense fans.</p>
+
+      <h2 class="text-2xl font-bold mb-4 text-purple-600">Plants vs Brainrots Game Features</h2>
+      <ul class="list-disc pl-6 space-y-2 text-gray-700">
+        <li><strong>Strategic tower defense:</strong> Place defensive plants strategically to counter invading Brainrots in <strong>Plants vs Brainrots</strong>.</li>
+        <li><strong>Diverse plant types:</strong> Unlock and use various plants with unique abilities in <strong>Plants vs Brainrots</strong>.</li>
+        <li><strong>Brainrot enemies:</strong> Face off against iconic Brainrot memes with different attack patterns in <strong>Plants vs Brainrots</strong>.</li>
+        <li><strong>Progressive difficulty:</strong> Experience increasing challenge as you advance through levels in <strong>Plants vs Brainrots</strong>.</li>
+        <li><strong>Resource management:</strong> Manage sun energy and plant costs strategically in <strong>Plants vs Brainrots</strong>.</li>
+        <li><strong>Humor and creativity:</strong> Enjoy the humorous take on tower defense gameplay in <strong>Plants vs Brainrots</strong>.</li>
+      </ul>
+
+      <h2 class="text-2xl font-bold mt-8 mb-3 text-green-600">How to Play Plants vs Brainrots</h2>
+      <p class="text-gray-700 mb-4">Getting started with <strong>Plants vs Brainrots</strong> is easy: begin by learning the basic mechanics of placing plants and managing resources. In <strong>Plants vs Brainrots</strong>, you'll need to collect sun energy to purchase and place defensive plants along the garden lanes. Each plant has unique abilities and costs, so strategic planning is essential for success.</p>
+
+      <p class="text-gray-700 mb-6">The key to success in <strong>Plants vs Brainrots</strong> is understanding the strengths and weaknesses of both your plants and the invading Brainrots. Different plants excel against different types of enemies, so you'll need to adapt your strategy based on the waves of Brainrots you're facing. Resource management is crucial in <strong>Plants vs Brainrots</strong>, as you'll need to balance between immediate defense and long-term strategic planning.</p>
+
+      <h2 class="text-2xl font-bold mb-3 text-blue-600">Advanced Strategies for Plants vs Brainrots</h2>
+      <ul class="list-disc pl-6 space-y-2 text-gray-700">
+        <li><strong>Plant combinations:</strong> Use complementary plants to create powerful defensive combinations in <strong>Plants vs Brainrots</strong>.</li>
+        <li><strong>Resource optimization:</strong> Maximize sun energy collection and efficient plant placement in <strong>Plants vs Brainrots</strong>.</li>
+        <li><strong>Enemy analysis:</strong> Study Brainrot attack patterns to develop effective counter-strategies in <strong>Plants vs Brainrots</strong>.</li>
+        <li><strong>Lane management:</strong> Focus defense on the most vulnerable lanes in <strong>Plants vs Brainrots</strong>.</li>
+        <li><strong>Upgrade priorities:</strong> Invest in the most effective plants for your current situation in <strong>Plants vs Brainrots</strong>.</li>
+      </ul>
+
+      <h2 class="text-2xl font-bold mt-8 mb-3 text-indigo-600">Why Play Plants vs Brainrots</h2>
+      <p class="text-gray-700"><strong>Plants vs Brainrots</strong> offers a unique and entertaining take on the tower defense genre, combining strategic gameplay with humor and creativity. The game's meme-inspired enemies and defensive plants create a fresh and engaging experience that appeals to both casual and hardcore players. Whether you enjoy strategic planning, resource management, or simply want to have fun with a humorous twist on classic gameplay, <strong>Plants vs Brainrots</strong> provides an entertaining and challenging experience.</p>
+
+      <h2 class="text-2xl font-bold mt-8 mb-3 text-pink-600">Plants vs Brainrots FAQ</h2>
+      <dl class="text-gray-700">
+        <dt>Is Plants vs Brainrots free to play?</dt>
+        <dd>Yes. <strong>Plants vs Brainrots</strong> is completely free to play in your browser with no download required.</dd>
+        <dt>Do I need to install anything to play Plants vs Brainrots?</dt>
+        <dd>No. <strong>Plants vs Brainrots</strong> runs entirely in your web browser, making it accessible on any device.</dd>
+        <dt>Can I play Plants vs Brainrots on mobile devices?</dt>
+        <dd>Yes. <strong>Plants vs Brainrots</strong> is optimized for mobile devices with touch controls for easy plant placement.</dd>
+        <dt>What makes Plants vs Brainrots different from other tower defense games?</dt>
+        <dd><strong>Plants vs Brainrots</strong> features humorous Brainrot meme enemies and creative plant defenders, adding a unique twist to the tower defense genre.</dd>
+        <dt>Is Plants vs Brainrots multiplayer?</dt>
+        <dd><strong>Plants vs Brainrots</strong> focuses on single-player tower defense gameplay with progressive difficulty levels.</dd>
+        <dt>Will my progress be saved in Plants vs Brainrots?</dt>
+        <dd>Yes. Your progress in <strong>Plants vs Brainrots</strong> is automatically saved, so you can continue from where you left off.</dd>
+      </dl>
+
+      <!-- Related Games Section -->
+      <div class="mt-8 pt-6 border-t border-gray-200">
+        <h3 class="text-xl font-bold mb-4 text-gray-800">More Games Like Plants vs Brainrots</h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <a href="../Steal-Brainrot-Online/index.html" class="block rounded-lg overflow-hidden group">
+            <div class="relative w-full bg-gray-100" style="min-height:120px;">
+              <div class="absolute inset-0 bg-center bg-cover transition-transform duration-300 group-hover:scale-105" style="background-image:url('../../images/steal-a-brainrot-online.webp');"></div>
+              <div class="relative z-10 flex items-end justify-center h-full p-4">
+                <div class="bg-white/85 backdrop-blur-sm px-3 py-1 rounded text-sm font-medium text-gray-900 shadow-sm">Steal Brainrot Online</div>
+              </div>
+            </div>
+          </a>
+          <a href="../Steal-a-Brainrot-3D/index.html" class="block rounded-lg overflow-hidden group">
+            <div class="relative w-full bg-gray-100" style="min-height:120px;">
+              <div class="absolute inset-0 bg-center bg-cover transition-transform duration-300 group-hover:scale-105" style="background-image:url('../../images/Steal-a-Brainrot-3D.webp');"></div>
+              <div class="relative z-10 flex items-end justify-center h-full p-4">
+                <div class="bg-white/85 backdrop-blur-sm px-3 py-1 rounded text-sm font-medium text-gray-900 shadow-sm">Steal a Brainrot 3D</div>
+              </div>
+            </div>
+          </a>
+          <a href="../99-Nights-In-The-Forest/index.html" class="block rounded-lg overflow-hidden group">
+            <div class="relative w-full bg-gray-100" style="min-height:120px;">
+              <div class="absolute inset-0 bg-center bg-cover transition-transform duration-300 group-hover:scale-105" style="background-image:url('../../images/99-Nights-in-the-Forest.webp');"></div>
+              <div class="relative z-10 flex items-end justify-center h-full p-4">
+                <div class="bg-white/85 backdrop-blur-sm px-3 py-1 rounded text-sm font-medium text-gray-900 shadow-sm">99 Nights In The Forest</div>
+              </div>
+            </div>
+          </a>
+          <a href="../Growden-io/index.html" class="block rounded-lg overflow-hidden group">
+            <div class="relative w-full bg-gray-100" style="min-height:120px;">
+              <div class="absolute inset-0 bg-center bg-cover transition-transform duration-300 group-hover:scale-105" style="background-image:url('../../images/growden-io.webp');"></div>
+              <div class="relative z-10 flex items-end justify-center h-full p-4">
+                <div class="bg-white/85 backdrop-blur-sm px-3 py-1 rounded text-sm font-medium text-gray-900 shadow-sm">Growden.io</div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </article>
+  </main>
+</body>
+<script>
+  (function(){
+    // Fullscreen for the embedded iframe/container
+    var fsBtn = document.getElementById('pvbFullscreenBtn');
+    var player = document.getElementById('pvbPlayer');
+    if(fsBtn && player){
+      fsBtn.addEventListener('click', function(){
+        var el = player;
+        var req = el.requestFullscreen || el.webkitRequestFullscreen || el.mozRequestFullScreen || el.msRequestFullscreen;
+        if (req) {
+          req.call(el);
+        }
+      });
+    }
+
+    // Simple rating like homepage
+    var likeBtn = document.getElementById('pvbLikeBtn');
+    var dislikeBtn = document.getElementById('pvbDislikeBtn');
+    var likeEl = document.getElementById('pvbLikeCount');
+    var dislikeEl = document.getElementById('pvbDislikeCount');
+    var scoreEl = document.getElementById('pvbScore');
+
+    function updateScore(){
+      var l = parseInt(likeEl.textContent)||0;
+      var d = parseInt(dislikeEl.textContent)||0;
+      var t = l + d;
+      var s = t>0 ? (l/t)*5 : 4.8;
+      scoreEl.textContent = s.toFixed(1);
+    }
+    if(likeBtn){
+      likeBtn.addEventListener('click', function(){
+        likeEl.textContent = (parseInt(likeEl.textContent)||0) + 1;
+        updateScore();
+      });
+    }
+    if(dislikeBtn){
+      dislikeBtn.addEventListener('click', function(){
+        dislikeEl.textContent = (parseInt(dislikeEl.textContent)||0) + 1;
+        updateScore();
+      });
+    }
+  })();
+</script>
+</html>
