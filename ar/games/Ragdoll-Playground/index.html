@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ragdoll Playground — Play Ragdoll Playground Free Online Physics Game</title>
+  <meta name="description" content="Play Ragdoll Playground free! Experience the ultimate physics-based ragdoll game with realistic physics and fun interactions. No download required!">
+  <link rel="canonical" href="/games/Ragdoll-Playground/">
+  <meta property="og:title" content="Ragdoll Playground — Play Free Physics Game">
+  <meta property="og:description" content="Experience realistic physics and fun interactions in Ragdoll Playground, the ultimate physics-based ragdoll game.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="/games/Ragdoll-Playground/">
+  <meta name="robots" content="index,follow">
+  
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TJ0WVHX547"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TJ0WVHX547');
+  </script>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* 暗黑神秘风格 - 与主页保持一致 */
+    .gradient-bg {
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+        box-shadow: 0 0 30px rgba(26, 26, 46, 0.8), 0 0 60px rgba(15, 52, 96, 0.4);
+        animation: dark-glow 3s ease-in-out infinite alternate;
+    }
+    
+    @keyframes dark-glow {
+        from { 
+            box-shadow: 0 0 40px rgba(255, 0, 128, 0.4), 0 0 80px rgba(0, 255, 255, 0.3), 0 0 120px rgba(255, 69, 0, 0.2);
+            filter: hue-rotate(0deg);
+        }
+        to { 
+            box-shadow: 0 0 60px rgba(255, 0, 128, 0.6), 0 0 100px rgba(0, 255, 255, 0.4), 0 0 140px rgba(255, 69, 0, 0.3);
+            filter: hue-rotate(10deg);
+        }
+    }
+    
+    /* 游戏容器样式 */
+    .game-container {
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+        border: 2px solid rgba(255, 0, 128, 0.3);
+        box-shadow: 0 0 20px rgba(255, 0, 128, 0.2), 0 0 40px rgba(0, 255, 255, 0.1);
+    }
+    
+    /* 内容区域样式 */
+    .content-area {
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+        border: 1px solid rgba(255, 0, 128, 0.2);
+        box-shadow: 0 0 15px rgba(255, 0, 128, 0.1);
+    }
+    
+    /* 按钮样式 */
+    .game-btn {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
+        transition: all 0.3s ease;
+    }
+    
+    .game-btn:hover {
+        box-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+        transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-white min-h-screen">
+  <!-- Site Header (matches homepage) -->
+  <header class="gradient-bg text-white shadow-lg">
+    <div class="w-full px-6 py-4">
+      <div class="container mx-auto flex items-center justify-between">
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10">
+            <img src="../../favicon.svg" alt="Steal Brainrot Online" class="w-full h-full">
+          </div>
+          <h2 class="text-2xl font-bold">Steal Brainrot Online</h2>
+        </div>
+        <a href="../../index.html" class="bg-white/20 hover:bg-white/30 text-white font-semibold px-3 py-2 rounded-lg border border-white/30">← Back to Home</a>
+      </div>
+    </div>
+  </header>
+  <main class="pb-6 pt-0">
+    <div class="w-full">
+      <div class="bg-gradient-to-r from-purple-600 to-pink-500 text-white px-6 py-6">
+        <div class="container mx-auto">
+          <h1 class="text-2xl font-bold">Ragdoll Playground</h1>
+        </div>
+      </div>
+    </div>
+
+    <section aria-label="Game Player" class="max-w-4xl mx-auto mt-6">
+      <div id="ragdollPlayer" class="bg-white rounded-lg shadow-xl overflow-hidden">
+        <div class="aspect-video">
+          <iframe id="ragdollIframe" class="w-full h-full border-0" src="https://steal-brainrot.io/ragdoll-playground.embed" title="Ragdoll Playground" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+      <div class="bg-white rounded-lg shadow-md border border-gray-100 mt-3 p-4 flex items-center justify-between">
+        <button id="ragdollFullscreenBtn" class="px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold">⛶ Fullscreen</button>
+        <div class="flex items-center gap-4 text-sm text-gray-700">
+          <button id="ragdollLikeBtn" class="flex items-center gap-1 hover:text-green-600"><span>👍</span><span id="ragdollLikeCount">1250</span></button>
+          <button id="ragdollDislikeBtn" class="flex items-center gap-1 hover:text-red-600"><span>👎</span><span id="ragdollDislikeCount">90</span></button>
+          <span>Score: <span id="ragdollScore" class="font-bold text-purple-600">4.7</span></span>
+        </div>
+      </div>
+    </section>
+
+    <article class="max-w-4xl mx-auto mt-8 bg-white rounded-lg shadow-lg p-8">
+      <h2 class="text-2xl md:text-3xl font-bold text-center mb-6">What Is Ragdoll Playground?</h2>
+      <p class="mb-4 text-gray-700"><strong>Ragdoll Playground</strong> is an entertaining physics-based game that allows players to interact with ragdoll characters in a sandbox environment. In <strong>Ragdoll Playground</strong>, players can manipulate ragdoll characters, create scenarios, and experiment with physics-based interactions. What makes <strong>Ragdoll Playground</strong> unique is its focus on realistic physics simulation and creative freedom, allowing players to create their own fun scenarios and experiments.</p>
+
+      <p class="mb-8 text-gray-700">The game's core mechanics revolve around physics simulation, character manipulation, and creative experimentation. Players can drag, drop, and interact with ragdoll characters in various ways, creating entertaining and sometimes hilarious scenarios. The game's sandbox nature ensures that players can experiment freely, making <strong>Ragdoll Playground</strong> a fun and engaging experience for players who enjoy physics-based games and creative experimentation.</p>
+
+      <h2 class="text-2xl font-bold mb-4 text-purple-600">Ragdoll Playground Game Features</h2>
+      <ul class="list-disc pl-6 space-y-2 text-gray-700">
+        <li><strong>Realistic physics:</strong> Experience realistic physics simulation in <strong>Ragdoll Playground</strong>.</li>
+        <li><strong>Creative freedom:</strong> Experiment with ragdoll characters in <strong>Ragdoll Playground</strong>.</li>
+        <li><strong>Interactive gameplay:</strong> Manipulate and interact with ragdoll characters in <strong>Ragdoll Playground</strong>.</li>
+        <li><strong>Sandbox environment:</strong> Create your own scenarios in <strong>Ragdoll Playground</strong>.</li>
+        <li><strong>Fun interactions:</strong> Enjoy entertaining physics-based interactions in <strong>Ragdoll Playground</strong>.</li>
+        <li><strong>Cross-platform compatibility:</strong> Play <strong>Ragdoll Playground</strong> on desktop, mobile, and tablet devices.</li>
+      </ul>
+
+      <h2 class="text-2xl font-bold mt-8 mb-3 text-green-600">How to Play Ragdoll Playground</h2>
+      <p class="text-gray-700 mb-4">Getting started with <strong>Ragdoll Playground</strong> is simple: begin by interacting with the ragdoll characters and experimenting with different scenarios. In <strong>Ragdoll Playground</strong>, you'll need to use your creativity and imagination to create fun and entertaining scenarios. The key to success is understanding the physics mechanics and using them to your advantage.</p>
+
+      <p class="text-gray-700 mb-6">The strategic depth of <strong>Ragdoll Playground</strong> comes from the need to understand physics principles and use them creatively. You'll need to decide how to manipulate the ragdoll characters, when to create specific scenarios, and how to use the environment to your advantage. The game's sandbox nature means that there are no right or wrong ways to play, allowing for endless creativity and experimentation.</p>
+
+      <h2 class="text-2xl font-bold mb-3 text-blue-600">Advanced Strategies for Ragdoll Playground</h2>
+      <ul class="list-disc pl-6 space-y-2 text-gray-700">
+        <li><strong>Physics mastery:</strong> Master the physics mechanics in <strong>Ragdoll Playground</strong>.</li>
+        <li><strong>Creative experimentation:</strong> Experiment with different scenarios in <strong>Ragdoll Playground</strong>.</li>
+        <li><strong>Character manipulation:</strong> Develop strategies for manipulating ragdoll characters in <strong>Ragdoll Playground</strong>.</li>
+        <li><strong>Scenario creation:</strong> Create entertaining and fun scenarios in <strong>Ragdoll Playground</strong>.</li>
+        <li><strong>Interaction optimization:</strong> Optimize your interactions with ragdoll characters in <strong>Ragdoll Playground</strong>.</li>
+      </ul>
+
+      <h2 class="text-2xl font-bold mt-8 mb-3 text-indigo-600">Why Play Ragdoll Playground</h2>
+      <p class="text-gray-700"><strong>Ragdoll Playground</strong> offers a unique and entertaining physics-based experience that combines realistic simulation with creative freedom. The game's focus on physics and experimentation creates an exciting environment where creativity and imagination are rewarded. Whether you enjoy physics-based games, creative experimentation, or simply want to have fun with ragdoll characters, <strong>Ragdoll Playground</strong> provides a compelling and entertaining gaming experience.</p>
+
+      <h2 class="text-2xl font-bold mt-8 mb-3 text-pink-600">Ragdoll Playground FAQ</h2>
+      <dl class="text-gray-700">
+        <dt>Is Ragdoll Playground free to play?</dt>
+        <dd>Yes. <strong>Ragdoll Playground</strong> is completely free to play in your browser with no download required.</dd>
+        <dt>Do I need to install anything to play Ragdoll Playground?</dt>
+        <dd>No. <strong>Ragdoll Playground</strong> runs entirely in your web browser, making it accessible on any device.</dd>
+        <dt>Can I play Ragdoll Playground on mobile devices?</dt>
+        <dd>Yes. <strong>Ragdoll Playground</strong> is optimized for mobile devices with touch controls for easy interaction.</dd>
+        <dt>What makes Ragdoll Playground different from other physics games?</dt>
+        <dd><strong>Ragdoll Playground</strong> features realistic physics simulation and creative freedom that set it apart from other physics games.</dd>
+        <dt>Is Ragdoll Playground multiplayer?</dt>
+        <dd><strong>Ragdoll Playground</strong> focuses on single-player physics gameplay with creative experimentation elements.</dd>
+        <dt>Will my progress be saved in Ragdoll Playground?</dt>
+        <dd>Your progress in <strong>Ragdoll Playground</strong> is session-based, but you can continue experimenting and creating new scenarios.</dd>
+      </dl>
+
+      <!-- Related Games Section -->
+      <div class="mt-8 pt-6 border-t border-gray-200">
+        <h3 class="text-xl font-bold mb-4 text-gray-800">More Games Like Ragdoll Playground</h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <a href="../Steal-Brainrot-Online/index.html" class="block rounded-lg overflow-hidden group">
+            <div class="relative w-full bg-gray-100" style="min-height:120px;">
+              <div class="absolute inset-0 bg-center bg-cover transition-transform duration-300 group-hover:scale-105" style="background-image:url('../../images/steal-a-brainrot-online.webp');"></div>
+              <div class="relative z-10 flex items-end justify-center h-full p-4">
+                <div class="bg-white/85 backdrop-blur-sm px-3 py-1 rounded text-sm font-medium text-gray-900 shadow-sm">Steal Brainrot Online</div>
+              </div>
+            </div>
+          </a>
+          <a href="../Steal-a-Brainrot-3D/index.html" class="block rounded-lg overflow-hidden group">
+            <div class="relative w-full bg-gray-100" style="min-height:120px;">
+              <div class="absolute inset-0 bg-center bg-cover transition-transform duration-300 group-hover:scale-105" style="background-image:url('../../images/Steal-a-Brainrot-3D.webp');"></div>
+              <div class="relative z-10 flex items-end justify-center h-full p-4">
+                <div class="bg-white/85 backdrop-blur-sm px-3 py-1 rounded text-sm font-medium text-gray-900 shadow-sm">Steal a Brainrot 3D</div>
+              </div>
+            </div>
+          </a>
+          <a href="../Plants-vs-Brainrots/index.html" class="block rounded-lg overflow-hidden group">
+            <div class="relative w-full bg-gray-100" style="min-height:120px;">
+              <div class="absolute inset-0 bg-center bg-cover transition-transform duration-300 group-hover:scale-105" style="background-image:url('../../images/plants-vs-brainrots.webp');"></div>
+              <div class="relative z-10 flex items-end justify-center h-full p-4">
+                <div class="bg-white/85 backdrop-blur-sm px-3 py-1 rounded text-sm font-medium text-gray-900 shadow-sm">Plants vs Brainrots</div>
+              </div>
+            </div>
+          </a>
+          <a href="../99-Nights-In-The-Forest/index.html" class="block rounded-lg overflow-hidden group">
+            <div class="relative w-full bg-gray-100" style="min-height:120px;">
+              <div class="absolute inset-0 bg-center bg-cover transition-transform duration-300 group-hover:scale-105" style="background-image:url('../../images/99-Nights-in-the-Forest.webp');"></div>
+              <div class="relative z-10 flex items-end justify-center h-full p-4">
+                <div class="bg-white/85 backdrop-blur-sm px-3 py-1 rounded text-sm font-medium text-gray-900 shadow-sm">99 Nights In The Forest</div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </article>
+  </main>
+</body>
+<script>
+  (function(){
+    // Fullscreen for the embedded iframe/container
+    var fsBtn = document.getElementById('ragdollFullscreenBtn');
+    var player = document.getElementById('ragdollPlayer');
+    if(fsBtn && player){
+      fsBtn.addEventListener('click', function(){
+        var el = player;
+        var req = el.requestFullscreen || el.webkitRequestFullscreen || el.mozRequestFullScreen || el.msRequestFullscreen;
+        if (req) {
+          req.call(el);
+        }
+      });
+    }
+
+    // Simple rating like homepage
+    var likeBtn = document.getElementById('ragdollLikeBtn');
+    var dislikeBtn = document.getElementById('ragdollDislikeBtn');
+    var likeEl = document.getElementById('ragdollLikeCount');
+    var dislikeEl = document.getElementById('ragdollDislikeCount');
+    var scoreEl = document.getElementById('ragdollScore');
+
+    function updateScore(){
+      var l = parseInt(likeEl.textContent)||0;
+      var d = parseInt(dislikeEl.textContent)||0;
+      var t = l + d;
+      var s = t>0 ? (l/t)*5 : 4.7;
+      scoreEl.textContent = s.toFixed(1);
+    }
+    if(likeBtn){
+      likeBtn.addEventListener('click', function(){
+        likeEl.textContent = (parseInt(likeEl.textContent)||0) + 1;
+        updateScore();
+      });
+    }
+    if(dislikeBtn){
+      dislikeBtn.addEventListener('click', function(){
+        dislikeEl.textContent = (parseInt(dislikeEl.textContent)||0) + 1;
+        updateScore();
+      });
+    }
+  })();
+</script>
+</html>
