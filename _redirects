@@ -1,4 +1,55 @@
 # Cloudflare Pages 多语言重定向规则
+
+# 移除 index.html 结尾，重定向到干净的 URL
+# 主域名
+https://stealbrainrot.co/index.html https://stealbrainrot.co/ 301
+https://stealbrainrot.co/games/*/index.html https://stealbrainrot.co/games/:splat/ 301
+
+# 子域名
+https://zh-cn.stealbrainrot.co/index.html https://zh-cn.stealbrainrot.co/ 301
+https://zh-cn.stealbrainrot.co/games/*/index.html https://zh-cn.stealbrainrot.co/games/:splat/ 301
+https://es.stealbrainrot.co/index.html https://es.stealbrainrot.co/ 301
+https://es.stealbrainrot.co/games/*/index.html https://es.stealbrainrot.co/games/:splat/ 301
+https://ar.stealbrainrot.co/index.html https://ar.stealbrainrot.co/ 301
+https://ar.stealbrainrot.co/games/*/index.html https://ar.stealbrainrot.co/games/:splat/ 301
+https://ko.stealbrainrot.co/index.html https://ko.stealbrainrot.co/ 301
+https://ko.stealbrainrot.co/games/*/index.html https://ko.stealbrainrot.co/games/:splat/ 301
+https://ja.stealbrainrot.co/index.html https://ja.stealbrainrot.co/ 301
+https://ja.stealbrainrot.co/games/*/index.html https://ja.stealbrainrot.co/games/:splat/ 301
+https://de.stealbrainrot.co/index.html https://de.stealbrainrot.co/ 301
+https://de.stealbrainrot.co/games/*/index.html https://de.stealbrainrot.co/games/:splat/ 301
+https://fr.stealbrainrot.co/index.html https://fr.stealbrainrot.co/ 301
+https://fr.stealbrainrot.co/games/*/index.html https://fr.stealbrainrot.co/games/:splat/ 301
+
+# HTTP 到 HTTPS 重定向
+http://stealbrainrot.co/* https://stealbrainrot.co/:splat 301
+http://zh-cn.stealbrainrot.co/* https://zh-cn.stealbrainrot.co/:splat 301
+http://es.stealbrainrot.co/* https://es.stealbrainrot.co/:splat 301
+http://ar.stealbrainrot.co/* https://ar.stealbrainrot.co/:splat 301
+http://ko.stealbrainrot.co/* https://ko.stealbrainrot.co/:splat 301
+http://ja.stealbrainrot.co/* https://ja.stealbrainrot.co/:splat 301
+http://de.stealbrainrot.co/* https://de.stealbrainrot.co/:splat 301
+http://fr.stealbrainrot.co/* https://fr.stealbrainrot.co/:splat 301
+
+# 阻止 www 子域名访问
+https://www.stealbrainrot.co/* https://stealbrainrot.co/:splat 301
+https://www.zh-cn.stealbrainrot.co/* https://zh-cn.stealbrainrot.co/:splat 301
+https://www.es.stealbrainrot.co/* https://es.stealbrainrot.co/:splat 301
+https://www.ar.stealbrainrot.co/* https://ar.stealbrainrot.co/:splat 301
+https://www.ko.stealbrainrot.co/* https://ko.stealbrainrot.co/:splat 301
+https://www.ja.stealbrainrot.co/* https://ja.stealbrainrot.co/:splat 301
+https://www.de.stealbrainrot.co/* https://de.stealbrainrot.co/:splat 301
+https://www.fr.stealbrainrot.co/* https://fr.stealbrainrot.co/:splat 301
+
+# 阻止重复的子域名路径 (例如 de.stealbrainrot.co/de/)
+https://de.stealbrainrot.co/de/* https://de.stealbrainrot.co/:splat 301
+https://zh-cn.stealbrainrot.co/zh-cn/* https://zh-cn.stealbrainrot.co/:splat 301
+https://es.stealbrainrot.co/es/* https://es.stealbrainrot.co/:splat 301
+https://ar.stealbrainrot.co/ar/* https://ar.stealbrainrot.co/:splat 301
+https://ko.stealbrainrot.co/ko/* https://ko.stealbrainrot.co/:splat 301
+https://ja.stealbrainrot.co/ja/* https://ja.stealbrainrot.co/:splat 301
+https://fr.stealbrainrot.co/fr/* https://fr.stealbrainrot.co/:splat 301
+
 # 主域名重定向到英文版
 stealbrainrot.co/* /:splat 200
 

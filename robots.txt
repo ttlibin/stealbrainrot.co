@@ -7,14 +7,19 @@ Sitemap: https://stealbrainrot.co/sitemap.xml
 # Crawl-delay for better server performance
 Crawl-delay: 1
 
-# Allow all language subdomains
-Allow: /zh-cn/
-Allow: /es/
-Allow: /ar/
-Allow: /ko/
-Allow: /ja/
-Allow: /de/
-Allow: /fr/
+# Block index.html URLs (use clean URLs without index.html)
+Disallow: /index.html
+Disallow: /games/*/index.html
+
+# Block weird URL paths
+Disallow: /4/
+Disallow: /lazq
+Disallow: /sup.ve
+Disallow: /egneodunq
+Disallow: /qhqzf
+Disallow: /uimzf
+Disallow: /uimzf-otqow
+Disallow: /uimzf-etai
 
 # Block common unwanted paths
 Disallow: /admin/
@@ -22,3 +27,12 @@ Disallow: /private/
 Disallow: /temp/
 Disallow: /*.log$
 Disallow: /*.tmp$
+
+# Disallow duplicate subdomain paths (e.g., /de/ on de.stealbrainrot.co)
+Disallow: /zh-cn/zh-cn/
+Disallow: /es/es/
+Disallow: /ar/ar/
+Disallow: /ko/ko/
+Disallow: /ja/ja/
+Disallow: /de/de/
+Disallow: /fr/fr/
