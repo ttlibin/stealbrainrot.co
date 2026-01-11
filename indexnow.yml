@@ -1,0 +1,135 @@
+name: IndexNow Auto Notification
+
+on:
+  # 主分支推送时触发
+  push:
+    branches:
+      - main
+      - master
+
+  # 支持手动触发
+  workflow_dispatch:
+    inputs:
+      notify_all:
+        description: '通知所有页面 (true/false)'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'true'
+          - 'false'
+
+jobs:
+  # 等待 Cloudflare Pages 部署完成
+  wait-for-deployment:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Wait for Cloudflare Pages deployment
+        run: |
+          echo "等待 Cloudflare Pages 部署完成..."
+          echo "Cloudflare Pages Git 集成会在推送后自动开始部署"
+          echo "等待 60 秒让部署有足够时间启动..."
+          sleep 60
+
+  # 通知 IndexNow
+  notify-indexnow:
+    needs: wait-for-deployment
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2  # 获取最近两次提交以检测变化
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      # 检测变化的文件
+      - name: Detect changed files
+        id: changed
+        run: |
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" && "${{ inputs.notify_all }}" == "true" ]]; then
+            echo "mode=all" >> $GITHUB_OUTPUT
+            echo "模式: 通知所有页面"
+          else
+            # 获取变化的 HTML 文件
+            CHANGED_FILES=$(git diff --name-only HEAD~1 HEAD | grep '\.html$' | grep -v '^node_modules/' || true)
+
+            if [ -z "$CHANGED_FILES" ]; then
+              echo "mode=none" >> $GITHUB_OUTPUT
+              echo "模式: 没有HTML文件变化，跳过通知"
+            else
+              echo "mode=changed" >> $GITHUB_OUTPUT
+              echo "mode=changed" >> $GITHUB_OUTPUT
+              echo "模式: 只通知变化的页面"
+
+              # 保存变化的文件列表
+              echo "$CHANGED_FILES" > changed_files.txt
+              echo "changed_files<<EOF" >> $GITHUB_OUTPUT
+              cat changed_files.txt >> $GITHUB_OUTPUT
+              echo "EOF" >> $GITHUB_OUTPUT
+            fi
+          fi
+
+      # 构建要通知的 URL 列表
+      - name: Build URL list
+        id: urls
+        run: |
+          BASE_URL="https://stealbrainrot.co"
+
+          if [ "${{ steps.changed.outputs.mode }}" == "all" ]; then
+            # 从 sitemap.xml 提取所有 URL
+            echo "从 sitemap.xml 提取所有 URL..."
+            npm install -g cheerio
+            node -e "
+              const fs = require('fs');
+              const xml = fs.readFileSync('sitemap.xml', 'utf8');
+              const urls = xml.match(/<loc>(.*?)<\/loc>/g) || [];
+              urls.forEach(u => console.log(u.replace(/<\/?loc>/g, '')));
+            " > urls_to_notify.txt
+
+          elif [ "${{ steps.changed.outputs.mode }}" == "changed" ]; then
+            # 将变化的文件转换为 URL
+            echo "将变化的文件转换为 URL..."
+            cat changed_files.txt | while read file; do
+              # 移除开头的目录，保留相对于根目录的路径
+              url_path=$(echo "$file" | sed 's|^.*stealbrainrot\.co/||' | sed 's|^/||')
+              if [ -n "$url_path" ]; then
+                echo "${BASE_URL}/${url_path}"
+              fi
+            done > urls_to_notify.txt
+
+            # 始终包含主页
+            echo "${BASE_URL}/" >> urls_to_notify.txt
+
+          else
+            # 没有变化，创建空列表
+            touch urls_to_notify.txt
+          fi
+
+          # 显示要通知的 URL
+          echo "要通知的 URL:"
+          cat urls_to_notify.txt
+
+          # 将 URL 列表保存为环境变量（单行，空格分隔）
+          URLS=$(cat urls_to_notify.txt | tr '\n' ' ' | sed 's/ $//')
+          echo "urls=$URLS" >> $GITHUB_OUTPUT
+
+      # 通知 IndexNow
+      - name: Notify IndexNow
+        if: steps.urls.outputs.urls != ''
+        run: |
+          echo "开始通知 IndexNow..."
+          echo "URL 列表: ${{ steps.urls.outputs.urls }}"
+
+          # 使用我们的 IndexNow 工具
+          node scripts/indexnow.js ${{ steps.urls.outputs.urls }}
+
+      # 跳过通知的情况
+      - name: Skip notification
+        if: steps.urls.outputs.urls == ''
+        run: |
+          echo "没有需要通知的 URL，跳过 IndexNow 通知"

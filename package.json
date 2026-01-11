@@ -5,7 +5,10 @@
   "main": "proxy-server.js",
   "scripts": {
     "start": "node proxy-server.js",
-    "dev": "nodemon proxy-server.js"
+    "dev": "nodemon proxy-server.js",
+    "indexnow": "node scripts/indexnow.js",
+    "indexnow:auto": "node scripts/notify-indexnow.js",
+    "indexnow:all": "node scripts/notify-indexnow.js --all"
   },
   "dependencies": {
     "express": "^4.18.2",

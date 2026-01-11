@@ -1,5 +1,4 @@
 # Steal Brainrot - Official Website
-
 ![Steal Brainrot](https://img.shields.io/badge/Game-Steal%20Brainrot%20Online-purple?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-Live-green?style=for-the-badge)
 ![Platform](https://img.shields.io/badge/Platform-Browser-blue?style=for-the-badge)
